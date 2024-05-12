@@ -9,87 +9,87 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASM_NET105_BanTui
 build_property.RootNamespace = ASM_NET105_BanTui
-build_property.ProjectDir = D:\FPT Polytechnic\ASSIGN_NET105_BAN_TUII\ASM_NET105_BanTui\
+build_property.ProjectDir = E:\CODE\VisualStudio\Web ASP.Net Core\NET105\ASSIGN_NET105_BAN_TUII\ASM_NET105_BanTui\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\FPT Polytechnic\ASSIGN_NET105_BAN_TUII\ASM_NET105_BanTui
+build_property.MSBuildProjectDirectory = E:\CODE\VisualStudio\Web ASP.Net Core\NET105\ASSIGN_NET105_BAN_TUII\ASM_NET105_BanTui
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Create.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExpZXVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Details.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExpZXVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Edit.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExpZXVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Index.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExpZXVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Home/Index.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Home/Privacy.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Create.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haVNQXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Details.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haVNQXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Edit.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haVNQXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Index.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/LoaiSP/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haVNQXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Create.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Details.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Edit.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Index.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/Error.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/_ViewImports.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/_ViewStart.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/_Layout.cshtml]
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-fznhi3z27l
