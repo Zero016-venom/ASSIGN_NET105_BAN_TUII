@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CODE\\VisualStudio\\Web ASP.Net Core\\NET105\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj": {}
+    "D:\\FPT Polytechnic\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj": {}
   },
   "projects": {
-    "E:\\CODE\\VisualStudio\\Web ASP.Net Core\\NET105\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj": {
+    "D:\\FPT Polytechnic\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODE\\VisualStudio\\Web ASP.Net Core\\NET105\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj",
+        "projectUniqueName": "D:\\FPT Polytechnic\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj",
         "projectName": "ASM_NET105_BanTui",
-        "projectPath": "E:\\CODE\\VisualStudio\\Web ASP.Net Core\\NET105\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj",
-        "packagesPath": "C:\\Users\\hviet\\.nuget\\packages\\",
-        "outputPath": "E:\\CODE\\VisualStudio\\Web ASP.Net Core\\NET105\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\obj\\",
+        "projectPath": "D:\\FPT Polytechnic\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\ASM_NET105_BanTui.csproj",
+        "packagesPath": "C:\\Users\\nqkha\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT Polytechnic\\ASSIGN_NET105_BAN_TUII\\ASM_NET105_BanTui\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hviet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nqkha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -68,6 +68,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.18, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.12, )"
             }
           },
           "imports": [
@@ -89,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
