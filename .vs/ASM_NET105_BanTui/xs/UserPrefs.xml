@@ -1,0 +1,49 @@
+﻿<Properties StartupConfiguration="{AC5BBE54-861A-4162-9999-EEA0BA4D4435}|http">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.ASM__NET105__BanTui PreferredExecutionTarget="/Applications/Arc.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ASM_NET105_BanTui/Views/SanPham/Index.cshtml">
+    <Files>
+      <File FileName="ASM_NET105_BanTui/Views/SanPham/Edit.cshtml" Line="52" Column="11" />
+      <File FileName="ASM_NET105_BanTui/Views/SanPham/Create.cshtml" Line="65" Column="41" />
+      <File FileName="ASM_NET105_BanTui/Controllers/SanPhamController.cs" Line="92" Column="104" />
+      <File FileName="ASM_NET105_BanTui/Views/SanPham/Index.cshtml" Line="92" Column="65" />
+      <File FileName="ASM_NET105_BanTui/Views/SanPham/Details.cshtml" Line="17" Column="30" />
+      <File FileName="ASM_NET105_BanTui/Core/Domain/Models/MauSac.cs" Line="1" Column="1" />
+      <File FileName="ASM_NET105_BanTui/Core/Domain/Models/ChatLieu.cs" Line="1" Column="1" />
+      <File FileName="ASM_NET105_BanTui/Core/Domain/Models/LoaiSP.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ASM_NET105_BanTui" expanded="True">
+            <Node name="ASM_NET105_BanTui" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Core" expanded="True">
+                <Node name="Domain" expanded="True">
+                  <Node name="Models" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Infrastructure" expanded="True">
+                <Node name="DatabaseContext" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Repository" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="LoaiSP" expanded="True" />
+                <Node name="SanPham" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

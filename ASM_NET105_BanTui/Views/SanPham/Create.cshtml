@@ -1,0 +1,75 @@
+﻿@model ASM_NET105_BanTui.Core.Domain.Models.SanPham
+
+@{
+    ViewData["Title"] = "Thêm sản phẩm mới";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+
+    <div class="form-group">
+        <label asp-for="TenSanPham" class="control-label">Tên sản phẩm:</label>
+        <input asp-for="TenSanPham" class="form-control" />
+        <span asp-validation-for="TenSanPham" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SoLuongTon" class="control-label">Số lượng tồn</label>
+        <input asp-for="SoLuongTon" class="form-control" />
+        <span asp-validation-for="SoLuongTon" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GiaNiemYet" class="control-label">Giá niêm yết</label>
+        <input asp-for="GiaNiemYet" class="form-control" />
+        <span asp-validation-for="GiaNiemYet" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ID_LoaiSP" class="control-label">Loại sản phẩm</label>
+        <select asp-for="ID_LoaiSP" class="form-control" asp-items="ViewBag.LoaiSP"></select>
+        <span asp-validation-for="ID_LoaiSP" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ID_Hang" class="control-label">Hãng</label>
+        <select asp-for="ID_Hang" class="form-control" asp-items="ViewBag.Hang"></select>
+        <span asp-validation-for="ID_Hang" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ID_MauSac" class="control-label">Màu sắc</label>
+        <select asp-for="ID_MauSac" class="form-control" asp-items="ViewBag.MauSac"></select>
+        <span asp-validation-for="ID_MauSac" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ID_ChatLieu" class="control-label">Chất liệu</label>
+        <select asp-for="ID_ChatLieu" class="form-control" asp-items="ViewBag.ChatLieu"></select>
+        <span asp-validation-for="ID_ChatLieu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Img" class="control-label">Ảnh:</label>
+        <input type="file" asp-for="Img" class="form-control" />
+        <span asp-validation-for="Img" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TrangThai" class="control-label">Trạng thái</label>
+        <input asp-for="TrangThai" class="form-control" />
+        <span asp-validation-for="TrangThai" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Thêm" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
