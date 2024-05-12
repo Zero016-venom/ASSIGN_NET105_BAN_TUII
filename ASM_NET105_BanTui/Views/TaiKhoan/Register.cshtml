@@ -11,87 +11,86 @@
     Bạn đã có tài khoản ? <a asp-action="Login" asp-controller="TaiKhoan" class="btn-link">Đăng nhập</a>
     <h2>Đăng ký</h2>
 
-    <form asp-controller="TaiKhoan" class="container d-flex justify-content-center" asp-action="Register" method="post">
+    <form asp-controller="TaiKhoan" asp-action="Register" method="post">
 
-        <div class="">
-            @*PersonName*@
-            <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 700px">
-                <div class="">
-                    <label asp-for="PersonName" class="form-label pt">Họ và tên</label>
-                </div>
-                <div class="flex-1 ms-3" style="width: 500px">
-                    <input asp-for="PersonName" class="form-control" />
-                    <span asp-validation-for="PersonName" class="text-danger"></span>
-                </div>
+        @*PersonName*@
+        <div class="form-field flex">
+            <div class="w-25">
+                <label asp-for="PersonName" class="form-label pt">Họ và tên</label>
             </div>
-
-            @*Email*@
-            <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 700px">
-                <div class="">
-                    <label asp-for="Email" class="form-label pt">Email</label>
-                </div>
-                <div class="flex-1 ms-3" style="width: 500px">
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-            </div>
-
-            @*Phone*@
-            <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 700px">
-                <div class="">
-                    <label asp-for="Phone" class="form-label pt">Số điện thoại</label>
-                </div>
-                <div class="flex-1 ms-3" style="width: 500px">
-                    <input asp-for="Phone" class="form-control" />
-                    <span asp-validation-for="Phone" class="text-danger"></span>
-                </div>
-            </div>
-
-            @*Password*@
-            <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 700px">
-                <div class="">
-                    <label asp-for="Password" class="form-label pt">Mật khẩu</label>
-                </div>
-                <div class="flex-1 ms-3" style="width: 500px">
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-            </div>
-
-            @*ConfirmPassword*@
-            <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 700px">
-                <div class="">
-                    <label asp-for="ConfirmPassword" class="form-label pt">Nhập lại mật khẩu</label>
-                </div>
-                <div class="flex-1 ms-3" style="width: 500px">
-                    <input asp-for="ConfirmPassword" class="form-control" />
-                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                </div>
-            </div>
-
-            @*Register*@
-            <div class="flex d-flex ms-3" style="width: 700px">
-                <div class="w-25">
-                </div>
-                <div class="flex-1">
-                    <button class="btn btn-success" type="submit">Đăng ký</button>
-
-                    <div asp-validation-summary="All" class="text-danger"></div>
-
-                    @if (ViewBag.Errors != null)
-                    {
-                        <div class="text-red ml">
-                            <ul>
-                                @foreach (string error in ViewBag.Errors)
-                                {
-                                    <li class="ml">@error</li>
-                                }
-                            </ul>
-                        </div>
-                    }
-                </div>
+            <div class="flex-1 w-25">
+                <input asp-for="PersonName" class="form-control"/>
+                <span asp-validation-for="PersonName" class="text-danger"></span>
             </div>
         </div>
+
+        @*Email*@
+        <div class="form-field flex">
+            <div class="w-25">
+                <label asp-for="Email" class="form-label pt">Email</label>
+            </div>
+            <div class="flex-1 w-25">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*Phone*@
+        <div class="form-field flex">
+            <div class="w-25">
+                <label asp-for="Phone" class="form-label pt">Số điện thoại</label>
+            </div>
+            <div class="flex-1 w-25">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*Password*@
+        <div class="form-field flex">
+            <div class="w-25">
+                <label asp-for="Password" class="form-label pt">Mật khẩu</label>
+            </div>
+            <div class="flex-1 w-25">
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*ConfirmPassword*@
+        <div class="form-field flex">
+            <div class="w-25">
+                <label asp-for="ConfirmPassword" class="form-label pt">Nhập lại mật khẩu</label>
+            </div>
+            <div class="flex-1 w-25">
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*Register*@
+        <div class="form-field flex">
+            <div class="w-25">
+            </div>
+            <div class="flex-1">
+                <button class="btn btn-success" type="submit">Đăng ký</button>
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="text-red ml">
+                        <ul>
+                            @foreach (string error in ViewBag.Errors)
+                            {
+                                <li class="ml">@error</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+
     </form>
 
 </div>
