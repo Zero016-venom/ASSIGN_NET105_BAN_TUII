@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ASM_NET105_BanTui.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class data : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -106,6 +106,7 @@ namespace ASM_NET105_BanTui.Migrations
                     GiaNiemYet = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ID_ChatLieu = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ID_LoaiSP = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TrangThai = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
