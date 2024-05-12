@@ -14,6 +14,10 @@ namespace ASM_NET105_BanTui.Infrastructure.DatabaseContext
 		{
 		}
 
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<ChatLieu> ChatLieu { get; set; }
         public DbSet<ChuongTrinhKhuyenMai> ChuongTrinhKhuyenMai { get; set; }
         public DbSet<GioHang> GioHang { get; set; }
