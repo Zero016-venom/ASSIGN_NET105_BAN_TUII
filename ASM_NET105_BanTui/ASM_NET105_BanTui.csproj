@@ -22,7 +22,6 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Core\Domain\Enums\" />
     <Folder Include="Infrastructure\DatabaseContext\" />
-    <Folder Include="DTO\" />
     <Folder Include="Repository\" />
     <Folder Include="iRepository\" />
     <Folder Include="Views\LoaiSP\" />
