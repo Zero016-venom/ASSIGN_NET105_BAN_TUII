@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Reflection;
+using ASM_NET105_BanTui.Core.Domain.IdentityEntities;
 using ASM_NET105_BanTui.Core.Domain.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASM_NET105_BanTui.Infrastructure.DatabaseContext
 {
-	public class AppDbContext : DbContext
+	public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 	{
 		public AppDbContext()
 		{
@@ -26,11 +29,13 @@ namespace ASM_NET105_BanTui.Infrastructure.DatabaseContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=KHAI-PC;Database=NET105_ASM;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=VIETANH\\SQLEXPRESS01;Database=ASM_NET105;Trusted_Connection=True;TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        { 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASM_NET105_BanTui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf9785a40d112059b3704cd60b69131838554f6f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f56ec9cf73829a4dda3dbe93184031561ec95981")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASM_NET105_BanTui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASM_NET105_BanTui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
