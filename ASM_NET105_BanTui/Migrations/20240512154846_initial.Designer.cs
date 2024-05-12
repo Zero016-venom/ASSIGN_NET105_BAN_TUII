@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM_NET105_BanTui.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240512124349_Initial")]
-    partial class Initial
+    [Migration("20240512154846_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
