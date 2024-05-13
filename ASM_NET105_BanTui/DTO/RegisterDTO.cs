@@ -22,6 +22,7 @@ namespace ASM_NET105_BanTui.DTO
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Nhập lại mật khẩu không được để trống !")]
+        [Compare("Password", ErrorMessage = "Mật khẩu và nhập lại mật khẩu không giống nhau !")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 

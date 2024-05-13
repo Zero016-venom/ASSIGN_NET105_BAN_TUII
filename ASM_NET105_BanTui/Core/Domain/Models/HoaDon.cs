@@ -17,7 +17,7 @@ namespace ASM_NET105_BanTui.Core.Domain.Models
         public virtual ICollection<HoaDonCT>? HoaDonCT { get; set; }
 
         [ForeignKey("ID_User")]
-        public virtual User? User { get; set; }
+        public virtual ApplicationUser? User { get; set; }
 
         [ForeignKey("ID_PTTT")]
         public virtual PTTT? PTTT { get; set; }

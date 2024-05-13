@@ -1,4 +1,4 @@
-﻿using ASM_NET105_BanTui.Core.Domain.IdentityEntities;
+﻿using ASM_NET105_BanTui.Core.Domain.Models;
 using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -40,6 +40,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
