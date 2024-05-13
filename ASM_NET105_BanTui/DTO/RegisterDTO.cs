@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ASM_NET105_BanTui.Core.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASM_NET105_BanTui.DTO
 {
@@ -23,6 +24,8 @@ namespace ASM_NET105_BanTui.DTO
         [Required(ErrorMessage = "Nhập lại mật khẩu không được để trống !")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        public UserTypeOptions UserType { get; set; } = UserTypeOptions.User;
 
     }
 }
