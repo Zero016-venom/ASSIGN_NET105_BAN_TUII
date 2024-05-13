@@ -22,10 +22,56 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                     </ul>
+
+                    <ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                @User.Identity?.Name
+                            </li>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    <a asp-controller="Home" asp-action="Index">Trang Admin</a>
+                                </li>
+                            }
+
+                            <li>
+                                <a asp-controller="TaiKhoan" asp-action="Logout">Đăng xuất</a>
+                            </li>
+                        }
+                        else
+                        {
+                            @if(ViewBag.CurrentUrl == "~/TaiKhoan/Register")
+                            {
+                                <li>
+                                    <a asp-action="Register" asp-controller="TaiKhoan" class="nav active">Đăng ký</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a asp-action="Register" asp-controller="TaiKhoan">Đăng ký</a>
+                                </li>
+                            }
+
+                            @if (ViewBag.CurrentUrl == "~/TaiKhoan/Login")
+                            {
+                                <li>
+                                    <a asp-action="Login" asp-controller="TaiKhoan" class="nav active">Đăng nhập</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a asp-action="Login" asp-controller="TaiKhoan">Đăng nhập</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+
                 </div>
             </div>
         </nav>
