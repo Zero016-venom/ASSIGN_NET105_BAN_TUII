@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using ASM_NET105_BanTui.Core.Domain.IdentityEntities;
 using ASM_NET105_BanTui.Core.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -8,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASM_NET105_BanTui.Infrastructure.DatabaseContext
 {
-	public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
+    public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 	{
 		public AppDbContext()
 		{
@@ -29,7 +28,7 @@ namespace ASM_NET105_BanTui.Infrastructure.DatabaseContext
         public DbSet<MauSac> MauSac { get; set; }
         public DbSet<PTTT> PTTT { get; set; }
         public DbSet<SanPham> SanPham { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<ApplicationUser> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
