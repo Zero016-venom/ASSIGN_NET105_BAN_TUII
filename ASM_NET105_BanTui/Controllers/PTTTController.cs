@@ -14,6 +14,8 @@ namespace ASM_NET105_BanTui.Controllers
         public IActionResult Index()
         {
             return View();
+
+            //cmt1
         }
     }
 }
