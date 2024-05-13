@@ -29,7 +29,8 @@ namespace ASM_NET105_BanTui.Controllers
                 .Include(p => p.LoaiSP)
                 .Include(p=>p.MauSac)
                 .Include(p=>p.Hang)
-                .Include(p=>p.ChatLieu).ToList();
+                .Include(p=>p.ChatLieu)
+                .ToList();
             return View(data);
         }
 
