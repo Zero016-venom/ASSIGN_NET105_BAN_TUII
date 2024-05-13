@@ -33,8 +33,7 @@ namespace ASM_NET105_BanTui.Infrastructure.DatabaseContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=VIETANH\\SQLEXPRESS01;Database=NET105_ASM;Trusted_Connection=True;TrustServerCertificate=True", 
-                options => options.EnableRetryOnFailure());
+            optionsBuilder.UseSqlServer("Server=VIETANH\\SQLEXPRESS01;Database=NET105_ASM;Trusted_Connection=True;TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         { 

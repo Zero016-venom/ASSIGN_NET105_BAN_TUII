@@ -1,6 +1,7 @@
 ﻿using ASM_NET105_BanTui.Core.Domain.Enums;
 using ASM_NET105_BanTui.Core.Domain.IdentityEntities;
 using ASM_NET105_BanTui.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
@@ -28,12 +29,14 @@ namespace ASM_NET105_BanTui.Controllers
         }
 
         [HttpGet]
+        [Authorize("NotAuthorized")]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize("NotAuthorized")]
         public async Task<IActionResult> Register(RegisterDTO registerDTO)
         {
             if (ModelState.IsValid == false)
@@ -55,7 +58,7 @@ namespace ASM_NET105_BanTui.Controllers
             if (result.Succeeded)
             {
                 //Kiem tra trang thai radio btn
-                if(registerDTO.UserType == Core.Domain.Enums.UserTypeOptions.Admin)
+                if (registerDTO.UserType == Core.Domain.Enums.UserTypeOptions.Admin)
                 {
                     //Tao role admin
                     if (await _roleManager.FindByNameAsync(UserTypeOptions.Admin.ToString()) is null)
@@ -73,7 +76,7 @@ namespace ASM_NET105_BanTui.Controllers
                 else
                 {
                     //Tao role user
-                    if(await _roleManager.FindByNameAsync(UserTypeOptions.User.ToString()) is null)
+                    if (await _roleManager.FindByNameAsync(UserTypeOptions.User.ToString()) is null)
                     {
                         ApplicationRole applicationRole = new ApplicationRole() { Name = UserTypeOptions.User.ToString() };
                         await _roleManager.CreateAsync(applicationRole);
@@ -95,13 +98,15 @@ namespace ASM_NET105_BanTui.Controllers
         }
 
         [HttpGet]
+        [Authorize("NotAuthorized")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDTO loginDTO)
+        [Authorize("NotAuthorized")]
+        public async Task<IActionResult> Login(LoginDTO loginDTO, string? ReturnUrl)
         {
             if (ModelState.IsValid == false)
             {
@@ -109,12 +114,22 @@ namespace ASM_NET105_BanTui.Controllers
                 return View(loginDTO);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(loginDTO.Email, loginDTO.Password, 
+            var result = await _signInManager.PasswordSignInAsync(loginDTO.Email, loginDTO.Password,
                 isPersistent: false, lockoutOnFailure: false);
 
             if (result.Succeeded)
             {
-                return RedirectToAction(nameof(SanPhamController.Index));
+                //Admin
+                ApplicationUser user = await _userManager.FindByEmailAsync(loginDTO.Email);
+                if (user != null)
+                {
+                    if (await _userManager.IsInRoleAsync(user, UserTypeOptions.Admin.ToString()))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+
+                    }
+                }
+                return RedirectToAction("Index", "SanPham");
             }
 
             ModelState.AddModelError("Login", "Email hoặc mật khẩu không hợp lệ");
@@ -130,7 +145,7 @@ namespace ASM_NET105_BanTui.Controllers
         public async Task<IActionResult> IsEmailAlreadyRegistered(string email)
         {
             ApplicationUser user = await _userManager.FindByEmailAsync(email);
-            if(user == null)
+            if (user == null)
             {
                 return Json(true);
             }
