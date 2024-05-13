@@ -69,6 +69,20 @@
                 </div>
             </div>
 
+            @*User Type*@
+            <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 700px">
+                <div class="w-25">
+                    <label asp-for="UserType" class="form-label pt">Loại tài khoản</label>
+                </div>
+                <div class="flex-1" style="width: 500px">
+                    <input type="radio" id="User" asp-for="UserType" value="User" checked/>
+                    <label for="User">User</label>
+
+                    <input type="radio" id="Admin" asp-for="UserType" value="Admin" class="ms-5"/>
+                    <label for="Admin">Admin</label>
+                </div>
+            </div>
+
             @*Register*@
             <div class="flex d-flex ms-3" style="width: 700px">
                 <div class="w-25">
