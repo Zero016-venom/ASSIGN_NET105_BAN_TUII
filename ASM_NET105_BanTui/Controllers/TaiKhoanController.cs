@@ -1,9 +1,11 @@
 ﻿using ASM_NET105_BanTui.Core.Domain.Enums;
-using ASM_NET105_BanTui.Core.Domain.IdentityEntities;
+using ASM_NET105_BanTui.Core.Domain.Models;
 using ASM_NET105_BanTui.DTO;
+using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 
 namespace ASM_NET105_BanTui.Controllers
@@ -11,32 +13,32 @@ namespace ASM_NET105_BanTui.Controllers
     public class TaiKhoanController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
+        private AppDbContext _db;
 
         public TaiKhoanController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-            RoleManager<ApplicationRole> roleManager)
+            RoleManager<ApplicationRole> roleManager, AppDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var user = await _db.User.ToListAsync();
+            return View(user);
         }
 
         [HttpGet]
-        [Authorize("NotAuthorized")]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize("NotAuthorized")]
         public async Task<IActionResult> Register(RegisterDTO registerDTO)
         {
             if (ModelState.IsValid == false)
@@ -84,6 +86,16 @@ namespace ASM_NET105_BanTui.Controllers
                     //Them user moi trong role user
                     await _userManager.AddToRoleAsync(user, UserTypeOptions.User.ToString());
                 }
+                //Tao cart cho user
+                var gioHang = new GioHang()
+                {
+                    ID_User = user.Id,
+                    TrangThai = StatusOptions.Active.ToString()
+                };
+
+                _db.GioHang.Add(gioHang);
+                await _db.SaveChangesAsync();
+
                 return RedirectToAction("Login", "TaiKhoan");
             }
             else
@@ -97,15 +109,13 @@ namespace ASM_NET105_BanTui.Controllers
             return View(registerDTO);
         }
 
-        [HttpGet]
-        [Authorize("NotAuthorized")]
+        [HttpGet]     
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]
-        [Authorize("NotAuthorized")]
+        [HttpPost]   
         public async Task<IActionResult> Login(LoginDTO loginDTO, string? ReturnUrl)
         {
             if (ModelState.IsValid == false)
@@ -126,7 +136,6 @@ namespace ASM_NET105_BanTui.Controllers
                     if (await _userManager.IsInRoleAsync(user, UserTypeOptions.Admin.ToString()))
                     {
                         return RedirectToAction("Index", "Home", new { area = "Admin" });
-
                     }
                 }
                 return RedirectToAction("Index", "SanPham");
@@ -139,7 +148,7 @@ namespace ASM_NET105_BanTui.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction(nameof(SanPhamController.Index));
+            return RedirectToAction("Index", "SanPham");
         }
 
         public async Task<IActionResult> IsEmailAlreadyRegistered(string email)
