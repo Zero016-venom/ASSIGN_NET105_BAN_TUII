@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
+}
+<div class="my-5 text-center">
+    <h1 class="w-100 text-center" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif">HAND-PICKED PRODUCTS</h1>
+    <div class="w-100 text-center">
+        <hr class="mx-auto" style="width: 100px"/>
+    </div>
+    <div class="w-100 d-flex justify-content-center">
+        <p class="w-50 fw-lighter">
+            the term "hand-picked" tells customers that they're looking at a curated list of products.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    @{
+                        var extension = System.IO.Path.GetExtension(item.Img);
+                    }
+                    @if (@extensions.Contains(extension))
+                    {
+                        <a asp-action="DetailsKH" asp-route-id="@item.ID_SanPham">
+                            <img class="card-img-top img-container" src="~/imgs/@item.Img" alt="@item.TenSanPham" style="object-fit:cover">
+                        </a>
+                    }
+                    <a asp-action="DetailsKH" asp-route-id="@item.ID_SanPham" style="text-decoration: none">
+                        <div class="mt-3 d-flex justify-content-center">
+                            <h5 class="fw-lighter tensp" style="color: black">@item.TenSanPham</h5>
+                        </div>
+                    </a>
+                    <div class="d-flex justify-content-center">
+                        <p class="card-text">@item.GiaNiemYet<p class="ps-1">vnđ</p>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .tensp:hover {
+        color:red;
+    }
+</style>
