@@ -26,6 +26,7 @@ namespace ASM_NET105_BanTui.DTO
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
+
         public UserTypeOptions UserType { get; set; } = UserTypeOptions.User;
 
     }

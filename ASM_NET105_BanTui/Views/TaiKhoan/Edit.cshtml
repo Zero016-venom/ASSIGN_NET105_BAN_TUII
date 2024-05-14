@@ -1,0 +1,90 @@
+﻿@model ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Chỉnh sửa tài khoản";
+}
+
+<h3>Sửa tài khoản</h3>
+
+<div class="container">
+    <div class="">
+        <div class="">
+            <form asp-action="Edit" class="container d-flex justify-content-center">
+                <div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 500px">
+                        <div>
+                            <label asp-for="PersonName" class="control-label">
+                                Tên người dùng
+                            </label>
+                        </div>
+                        <div class="flex-1 ms-3" style="width: 300px">
+                            <input asp-for="PersonName" class="form-control" />
+                            <span asp-validation-for="PersonName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 500px">
+                        <div>
+                            <label asp-for="Status" class="control-label">
+                                Trạng thái
+                            </label>
+                        </div>
+                        <div class="flex-1 ms-3" style="width: 300px">
+                            <select asp-for="Status" class="form-select">
+                                <option value="">-- Chọn trạng thái --</option>
+                                @foreach (var item in Enum.GetValues(typeof(StatusOptions)))
+                                {
+                                    <option value="@item.ToString()">@item.ToString()</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 500px">
+                        <div>
+                            <label asp-for="Email" class="control-label"></label>
+                        </div>
+                        <div class="flex-1 ms-3" style="width: 300px">
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 500px">
+                        <div>
+                            <label asp-for="PhoneNumber" class="control-label">
+                                Số điện thoại
+                            </label>
+                        </div>
+                        <div class ="flex-1 ms-3" style="width: 300px">
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group w-100 d-flex justify-content-lg-between mb-4" style="width: 500px">
+                        <div>
+                            <label asp-for="PhoneNumber" class="control-label">
+                                Số điện thoại
+                            </label>
+                        </div>
+                        <div class="flex-1 ms-3" style="width: 300px">
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group container d-flex justify-content-center">
+                        <input type="submit" value="Cập nhật" class="btn btn-warning text-white" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách tài khoản</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
