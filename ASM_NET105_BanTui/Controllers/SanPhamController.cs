@@ -32,7 +32,17 @@
                 return View(data);
             }
 
-            public IActionResult Create()
+            public IActionResult IndexKH()
+            {
+                var data = context.SanPham
+                    .Include(p => p.LoaiSP)
+                    .Include(p => p.MauSac)
+                    .Include(p => p.Hang)
+                    .Include(p => p.ChatLieu).ToList();
+                return View(data);
+            }
+
+        public IActionResult Create()
             {
                 ViewBag.LoaiSP = new SelectList(context.LoaiSP.ToList(), "ID_LoaiSP", "TenLoaiSP");
                 ViewBag.MauSac = new SelectList(context.MauSac.ToList(), "ID_MauSac", "TenMauSac");
@@ -73,6 +83,15 @@
                 var temp = repo.GetById(id);
                 return View(temp);
             }
+        public IActionResult DetailsKH(Guid id)
+        {
+            ViewBag.LoaiSP = new SelectList(context.LoaiSP.ToList(), "ID_LoaiSP", "TenLoaiSP");
+            ViewBag.MauSac = new SelectList(context.MauSac.ToList(), "ID_MauSac", "TenMauSac");
+            ViewBag.Hang = new SelectList(context.Hang.ToList(), "ID_Hang", "TenHang");
+            ViewBag.ChatLieu = new SelectList(context.ChatLieu.ToList(), "ID_ChatLieu", "TenChatLieu");
+            var temp = repo.GetById(id);
+            return View(temp);
+        }
         public IActionResult Edit(Guid id)
         {
             ViewBag.LoaiSP = new SelectList(context.LoaiSP.ToList(), "ID_LoaiSP", "TenLoaiSP");

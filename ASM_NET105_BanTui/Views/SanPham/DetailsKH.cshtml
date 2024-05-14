@@ -1,0 +1,81 @@
+﻿@model ASM_NET105_BanTui.Core.Domain.Models.SanPham
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jepg", ".webp" };
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Tên sản phẩm: @Model.TenSanPham</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ID_SanPham
+        </dd>
+        <dt class="col-sm-2">
+            Số lượng tồn:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.SoLuongTon
+        </dd>
+        <dt class="col-sm-2">
+            Giá niêm yết:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.GiaNiemYet
+        </dd>
+        <dt class="col-sm-2">
+            Loại sản phẩm:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.LoaiSP.TenLoaiSP
+        </dd>
+        <dt class="col-sm-2">
+            Hãng:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Hang.TenHang
+        </dd>
+        <dt class="col-sm-2">
+            Màu sắc:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.MauSac.TenMauSac
+        </dd>
+        <dt class="col-sm-2">
+            Chất liệu:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ChatLieu.TenChatLieu
+        </dd>
+        <dt class="col-sm-2">
+            Hình ảnh:
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                var extension = System.IO.Path.GetExtension(Model.Img);
+            }
+            @if (@extensions.Contains(extension))
+            {
+                <div class="img-container d-flex justify-content-start" style="width: 300px; height: 300px;">
+                    <img class="responsive-img" src="~/imgs/@Model.Img" alt="@Model.TenSanPham" style="object-fit:cover">
+                </div>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Trạng thái:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TrangThai
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
