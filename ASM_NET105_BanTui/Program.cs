@@ -1,5 +1,7 @@
 ﻿using ASM_NET105_BanTui.Core.Domain.Models;
 using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
+using ASM_NET105_BanTui.iRepository;
+using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
@@ -10,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//builder.Services.AddScoped<iAllRepository, AllRepository>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

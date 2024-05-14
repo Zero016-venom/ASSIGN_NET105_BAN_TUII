@@ -2,10 +2,12 @@
 using ASM_NET105_BanTui.Core.Domain.Models;
 using ASM_NET105_BanTui.DTO;
 using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
+using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Microsoft.VisualBasic;
 
 namespace ASM_NET105_BanTui.Controllers
@@ -15,7 +17,8 @@ namespace ASM_NET105_BanTui.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
-        private AppDbContext _db;
+        private readonly AllRepository<ApplicationUser> _repo;
+        private readonly AppDbContext _db;
 
         public TaiKhoanController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager, AppDbContext db)
@@ -24,6 +27,7 @@ namespace ASM_NET105_BanTui.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
             _db = db;
+            _repo = new AllRepository<ApplicationUser>(_db, _db.User);
         }
 
         public async Task<IActionResult> Index()
@@ -52,7 +56,8 @@ namespace ASM_NET105_BanTui.Controllers
                 Email = registerDTO.Email,
                 PersonName = registerDTO.PersonName,
                 PhoneNumber = registerDTO.Phone,
-                UserName = registerDTO.Email
+                UserName = registerDTO.Email,
+                Status = StatusOptions.Active.ToString()
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, registerDTO.Password);
@@ -109,13 +114,13 @@ namespace ASM_NET105_BanTui.Controllers
             return View(registerDTO);
         }
 
-        [HttpGet]     
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]   
+        [HttpPost]
         public async Task<IActionResult> Login(LoginDTO loginDTO, string? ReturnUrl)
         {
             if (ModelState.IsValid == false)
@@ -162,6 +167,42 @@ namespace ASM_NET105_BanTui.Controllers
             {
                 return Json(false);
             }
+        }
+
+        //[HttpGet]
+        public IActionResult Edit(Guid AccountID)
+        {
+            //var matchingAccount = _repo.GetById(AccountID);
+
+            //if (matchingAccount == null)
+            //    return RedirectToAction("Index");
+
+            //return View(matchingAccount);
+            var temp = _repo.GetById(AccountID);
+            return View(temp);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ApplicationUser user)
+        {
+            //var matchingAccount = _db.User.FirstOrDefaultAsync(temp => temp.Id == user.Id);
+
+            //if (matchingAccount == null)
+            //    return RedirectToAction("Index");
+
+            //if (ModelState.IsValid)
+            //{
+            //    _db.User.Update(user);
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    ViewBag.Error = ModelState.Values.SelectMany(temp => temp.Errors).Select(temp => temp.ErrorMessage);
+            //    return View(matchingAccount);
+            //}
+
+            _repo.UpdateObj(user);
+            return RedirectToAction("Index");
         }
     }
 }
