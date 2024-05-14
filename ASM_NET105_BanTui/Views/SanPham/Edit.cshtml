@@ -1,12 +1,12 @@
 ﻿@model ASM_NET105_BanTui.Core.Domain.Models.SanPham
 
 @{
-    ViewData["Title"] = "Thêm sản phẩm mới";
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="Create" enctype="multipart/form-data">
+<form asp-action="Edit" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="form-group">
@@ -62,8 +62,10 @@
         <input asp-for="TrangThai" class="form-control" />
         <span asp-validation-for="TrangThai" class="text-danger"></span>
     </div>
+
+    <input type="hidden" asp-for="ID_SanPham" />
     <div class="form-group">
-        <input type="submit" value="Thêm" class="btn btn-primary" />
+        <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
     </div>
 </form>
 
