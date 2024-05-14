@@ -92,6 +92,16 @@
                     <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ID_SanPham">Delete</a>
                 </td>
             </tr>
+        <td>
+            <form action="@Url.Action("AddToCart", "SanPham")" method="post">
+                <div class="form-group">
+                    <label for="quantity">Số lượng:</label>
+                    <input type="number" id="SL" name="SL" min="1" value="1" class="form-control" />
+                </div>
+                <input type="hidden" name="id" value="@item.ID_SanPham" />
+                <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+            </form>
+        </td>
         }
     </tbody>
 </table>

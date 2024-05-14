@@ -143,6 +143,7 @@ namespace ASM_NET105_BanTui.Controllers
                         return RedirectToAction("Index", "Home", new { area = "Admin" });
                     }
                 }
+                HttpContext.Session.SetString("UserId", user.Id.ToString());//
                 return RedirectToAction("Index", "SanPham");
             }
 

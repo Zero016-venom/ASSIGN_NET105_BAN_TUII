@@ -16,11 +16,13 @@ namespace ASM_NET105_BanTui.Controllers
     public class SanPhamController : Controller
     {
         AllRepository<SanPham> repo;
-        AppDbContext context;   
+        AllRepository<GioHangCT> repoGHCT;
+        AppDbContext context;
         public SanPhamController()
         {
             context = new AppDbContext();
             repo = new AllRepository<SanPham>(context, context.SanPham);
+            repoGHCT = new AllRepository<GioHangCT>(context, context.GioHangCT);
         }
         // GET: /<controller>/
         public IActionResult Index()
@@ -92,6 +94,38 @@ namespace ASM_NET105_BanTui.Controllers
             ViewBag.ChatLieu = new SelectList(context.ChatLieu.ToList(), "ID_ChatLieu", "TenChatLieu");
             repo.UpdateObj(sp);
             return RedirectToAction("Index");
+        }
+        public IActionResult AddToCart(Guid id, int SL)
+        {
+            var check = HttpContext.Session.GetString("UserId");
+            if (Guid.TryParse(check, out Guid UserId))
+            {
+                if (string.IsNullOrEmpty(check))
+                {
+                    return RedirectToAction("Login", "TaiKhoan");
+                }
+                else
+                {
+                    var cartItem = repoGHCT.GetAll().FirstOrDefault(x => x.ID_User == UserId && x.ID_SanPham == id);
+                    if (cartItem == null)
+                    {
+                        GioHangCT gioHangCT = new GioHangCT() 
+                        {
+                            ID_GioHangCT = Guid.NewGuid(),
+                            ID_SanPham = id,
+                            SoLuong = SL, 
+                            ID_User = UserId,
+                        };
+                        repoGHCT.CreateObj(gioHangCT);
+                    }
+                    else
+                    {
+                        cartItem.SoLuong = cartItem.SoLuong + SL;
+                        repoGHCT.UpdateObj(cartItem);
+                    }
+                }
+            }
+            return RedirectToAction("Index", "GioHangCT");
         }
     }
 }
