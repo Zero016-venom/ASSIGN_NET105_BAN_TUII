@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\CODE\VisualStudio\Web ASP.Net Core\NET105\ASSIGN_NET105_BAN_TUII\ASM_NET105_BanTui
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/brands/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnJhbmRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/brands/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnJhbmRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/brands/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnJhbmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/brands/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnJhbmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExpZXVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,6 +48,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/ChatLieu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExpZXVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Color/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Color/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Color/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Color/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Home/Index.cshtml]
@@ -66,10 +98,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/SanPham/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +108,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/TaiKhoan/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/CODE/VisualStudio/Web ASP.Net Core/NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/Views/TaiKhoan/Index.cshtml]

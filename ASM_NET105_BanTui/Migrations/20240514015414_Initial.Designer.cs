@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM_NET105_BanTui.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240513124107_Initial")]
+    [Migration("20240514015414_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -100,6 +100,9 @@ namespace ASM_NET105_BanTui.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
