@@ -164,7 +164,7 @@
                     }
                 }
             }
-            return RedirectToAction("Index", "GioHangCT");
+            return RedirectToAction("Index", "GioHang");
         }
 
     }
