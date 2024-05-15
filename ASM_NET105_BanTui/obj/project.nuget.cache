@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pgz8/wKicgvzVy+1iSv3R9oK6x3ZAP29ocuf0mhlJLqmZJjvb9oSpcNbfQmEs61otFwAv7VqdytOyrbz6WrXUw==",
+  "dgSpecHash": "Du0BoI0htB2L389pYelRxodz3JwIDkXUUtigfJUmDrwFhQwq1nmO8r8jznETPPzlhMxY3ghAs/HXGF2D3Tn47g==",
   "success": true,
-  "projectFilePath": "/Users/tuananhvu/Doc/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj",
+  "projectFilePath": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj",
   "expectedPackageFiles": [
     "/Users/tuananhvu/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/tuananhvu/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

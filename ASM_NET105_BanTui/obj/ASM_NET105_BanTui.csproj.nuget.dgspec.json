@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tuananhvu/Doc/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj": {}
+    "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj": {}
   },
   "projects": {
-    "/Users/tuananhvu/Doc/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj": {
+    "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tuananhvu/Doc/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj",
+        "projectUniqueName": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj",
         "projectName": "ASM_NET105_BanTui",
-        "projectPath": "/Users/tuananhvu/Doc/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj",
+        "projectPath": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/ASM_NET105_BanTui.csproj",
         "packagesPath": "/Users/tuananhvu/.nuget/packages/",
-        "outputPath": "/Users/tuananhvu/Doc/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/obj/",
+        "outputPath": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tuananhvu/.nuget/NuGet/NuGet.Config"
@@ -21,6 +21,7 @@
         ],
         "sources": {
           "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.316/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -92,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.204/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.316/RuntimeIdentifierGraph.json"
         }
       }
     }
