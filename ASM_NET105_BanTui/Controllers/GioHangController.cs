@@ -28,12 +28,12 @@ namespace ASM_NET105_BanTui.Controllers
             {
                 if (UserId == Guid.Empty)
                 {
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Login", "TaiKhoan");
                 }
                 else
                 {
 
-                    var cartItem = repo.GetAll().FirstOrDefault(x => x.ID_User == UserId);
+                    var cartItem = repo.GetAll().Where(x => x.ID_User == UserId).ToList();
                     return View(cartItem);
                 }
             }
