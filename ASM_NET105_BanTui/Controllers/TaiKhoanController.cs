@@ -144,7 +144,7 @@ namespace ASM_NET105_BanTui.Controllers
                     }
                 }
                 HttpContext.Session.SetString("UserId", user.Id.ToString());
-                return RedirectToAction("Index", "SanPham");
+                return RedirectToAction("IndexKH", "SanPham");
             }
 
             ModelState.AddModelError("Login", "Email hoặc mật khẩu không hợp lệ");
