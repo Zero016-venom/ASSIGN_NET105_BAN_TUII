@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.HoaDonCT>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3>Hóa đơn chi tiết</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_SanPham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_HoaDon)
+            </th>
+            <th>
+                @Html.DisplayName("Giá bán")
+            </th>
+            <th>
+                @Html.DisplayName("Số lượng")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_SanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_HoaDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID_HoaDonCT }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_HoaDonCT }) |
+                    @Html.ActionLink("Hủy hóa đơn", "Delete", new { id = item.ID_HoaDonCT })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

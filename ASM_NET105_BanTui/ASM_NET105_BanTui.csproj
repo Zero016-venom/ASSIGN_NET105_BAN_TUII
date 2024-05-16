@@ -21,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="Core\Domain\Enums\" />
     <Folder Include="Infrastructure\DatabaseContext\" />
     <Folder Include="Repository\" />
     <Folder Include="iRepository\" />
