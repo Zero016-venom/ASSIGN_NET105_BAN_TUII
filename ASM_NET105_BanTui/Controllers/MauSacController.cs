@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASM_NET105_BanTui.Controllers
 {
-    public class ColorController : Controller
+    public class MauSacController : Controller
     {
         AppDbContext db;
         AllRepository<MauSac> repos;
-        public ColorController()
+        public MauSacController()
         {
             db = new AppDbContext();
             repos= new AllRepository<MauSac>(db,db.MauSac);
