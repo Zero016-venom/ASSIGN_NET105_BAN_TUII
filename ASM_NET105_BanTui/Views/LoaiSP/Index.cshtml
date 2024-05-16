@@ -3,18 +3,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index LoaiSP</h1>
+<h3>Danh sách loại sản phẩm</h3>
 
 <p>
-    <a asp-action="Create">Create new</a>
+    <a asp-action="Create">Tạo mới</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>Ten</th>
-            <th>Mo ta</th>
-            <th>Trang thai</th>
-            <th></th>
+            <th>Tên loại sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Trạng thái</th>
+            <th>Chức năng</th>
         </tr>
     </thead>
     <tbody>
@@ -31,9 +31,9 @@
                     @Html.DisplayFor(modelItem => item.TrangThai)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_LoaiSP }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_LoaiSP }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_LoaiSP }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID_LoaiSP }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_LoaiSP }, new { @class = "btn btn-info" })
+                    @* @Html.ActionLink("Delete", "Delete", new { id = item.ID_LoaiSP }, new { @class = "btn btn-danger" }) *@
 
                 </td>
             </tr>
