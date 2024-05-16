@@ -159,8 +159,17 @@
                     }
                     else
                     {
-                        cartItem.SoLuong = cartItem.SoLuong + SL;
-                        repoGHCT.UpdateObj(cartItem);
+                        var sanPham = repo.GetById(id);
+
+                        if (cartItem.SoLuong + SL <= sanPham.SoLuongTon)
+                        {
+                            cartItem.SoLuong = cartItem.SoLuong + SL;
+                            repoGHCT.UpdateObj(cartItem);
+                        }
+                        else
+                        {
+                            TempData["Message"] = "Đã đạt số lượng tối đa !";
+                        }
                     }
                 }
             }
@@ -192,8 +201,17 @@
                     }
                     else
                     {
-                        cartItem.SoLuong = cartItem.SoLuong + quantity;
-                        repoGHCT.UpdateObj(cartItem);
+                        var sanPham = repo.GetById(id);
+
+                        if(cartItem.SoLuong + quantity <= sanPham.SoLuongTon)
+                        {
+                            cartItem.SoLuong = cartItem.SoLuong + quantity;
+                            repoGHCT.UpdateObj(cartItem);
+                        }
+                        else
+                        {
+                            TempData["Message"] = "Đã đạt số lượng tối đa !";
+                        }
                     }
                 }
             }
@@ -211,8 +229,6 @@
 
             return View(product);
         }
-
-
     }
 }
 

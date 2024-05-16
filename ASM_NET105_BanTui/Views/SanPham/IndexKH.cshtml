@@ -4,6 +4,12 @@
     ViewData["Title"] = "Danh sách sản phẩm";
     List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
 }
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
 <div class="my-5 text-center">
     <h1 class="w-100 text-center" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif">HAND-PICKED PRODUCTS</h1>
     <div class="w-100 text-center">
@@ -39,6 +45,7 @@
                                     <img src="~/imgs/Heart.png" class="px-1" />
                                     Add to wishlist
                                 </a>
+                                    
                             </div>
                             <a asp-action="AddToCartView" asp-route-id="@item.ID_SanPham" style="font-size: 30px" class="AddToCartButton">+</a>
                         </div>
