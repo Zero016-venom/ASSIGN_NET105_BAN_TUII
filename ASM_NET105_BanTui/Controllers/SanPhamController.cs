@@ -159,14 +159,76 @@
                     }
                     else
                     {
-                        cartItem.SoLuong = cartItem.SoLuong + SL;
-                        repoGHCT.UpdateObj(cartItem);
+                        var sanPham = repo.GetById(id);
+
+                        if (cartItem.SoLuong + SL <= sanPham.SoLuongTon)
+                        {
+                            cartItem.SoLuong = cartItem.SoLuong + SL;
+                            repoGHCT.UpdateObj(cartItem);
+                        }
+                        else
+                        {
+                            TempData["Message"] = "Đã đạt số lượng tối đa !";
+                        }
                     }
                 }
             }
-            return RedirectToAction("Index", "GioHang");
+            return RedirectToAction("IndexKH", "SanPham");
         }
 
+        public IActionResult AddToCart2(Guid id, int quantity)
+        {
+            var check = HttpContext.Session.GetString("UserId");
+            if (Guid.TryParse(check, out Guid UserId))
+            {
+                if (string.IsNullOrEmpty(check))
+                {
+                    return RedirectToAction("Login", "TaiKhoan");
+                }
+                else
+                {
+                    var cartItem = repoGHCT.GetAll().FirstOrDefault(x => x.ID_User == UserId && x.ID_SanPham == id);
+                    if (cartItem == null)
+                    {
+                        GioHangCT gioHangCT = new GioHangCT()
+                        {
+                            ID_GioHangCT = Guid.NewGuid(),
+                            ID_SanPham = id,
+                            SoLuong = quantity,
+                            ID_User = UserId,
+                        };
+                        repoGHCT.CreateObj(gioHangCT);
+                    }
+                    else
+                    {
+                        var sanPham = repo.GetById(id);
+
+                        if(cartItem.SoLuong + quantity <= sanPham.SoLuongTon)
+                        {
+                            cartItem.SoLuong = cartItem.SoLuong + quantity;
+                            repoGHCT.UpdateObj(cartItem);
+                        }
+                        else
+                        {
+                            TempData["Message"] = "Đã đạt số lượng tối đa !";
+                        }
+                    }
+                }
+            }
+            return RedirectToAction("IndexKH", "SanPham");
+        }
+
+        public IActionResult AddToCartView(Guid id)
+        {
+            // Lấy thông tin sản phẩm từ ID và truyền vào view
+            var product = context.SanPham.FirstOrDefault(p => p.ID_SanPham == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
     }
 }
 

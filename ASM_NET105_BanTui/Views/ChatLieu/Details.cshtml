@@ -4,32 +4,25 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h3>Chi tiết chất liệu</h3>
 
 <div>
-    <h4>ChatLieu</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ID_ChatLieu)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ID_ChatLieu)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TenChatLieu)
+            @Html.DisplayName("Tên chất liệu")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TenChatLieu)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MoTa)
+            @Html.DisplayName("Mô tả")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MoTa)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TrangThai)
+            @Html.DisplayName("Trạng thái")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TrangThai)
@@ -37,6 +30,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.ID_ChatLieu" class="btn btn-warning">Chỉnh sửa</a>
+    <a asp-action="Index">Quay lại danh sách hãng</a>
 </div>
