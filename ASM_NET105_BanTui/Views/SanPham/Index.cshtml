@@ -1,8 +1,8 @@
-﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.SanPham>
+﻿    @model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.SanPham>
 
 @{
     ViewData["Title"] = "Danh sách sản phẩm";
-    // List<string> extentions = new List<string>() { ".jpg", ".png", ".tiff", ".jepg", ".webp" };
+    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jepg", ".webp" };
 }
 <p>
     <a asp-action="Create" class="btn btn-primary">Thêm sản phẩm mới</a>
@@ -72,19 +72,19 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Img)
                 </td>
-                @*<td>
+                <td>
                     <div class="bg-light d-flex justify-content-center">
                         @{
-                            var extension = System.IO.Path.GetExtension(System.IO.Path.GetFileName(item.Img));
+                            var extension = System.IO.Path.GetExtension(item.Img);
                         }
-                        @if (!string.IsNullOrEmpty(item.Img) && extentions.Contains(extension))
+                        @if (@extensions.Contains(extension))
                         {
-                            <a asp-action="Index">
-                                <img src="~/imgs/@item.Img" height="200px" width="350px">
-                            </a>
+                            <div class="img-container d-flex justify-content-center" style="width: 100px; height: 100px;">
+                                <img class="responsive-img" src="~/imgs/@item.Img" alt="@item.TenSanPham" style="object-fit:cover">
+                            </div>
                         }
                     </div>
-                </td>*@
+                </td>
 
                 <td>
                     <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.ID_SanPham">Edit</a> |

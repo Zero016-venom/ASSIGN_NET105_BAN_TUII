@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.PTTT>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index PTTT</h1>
+
+<p>
+    <a asp-action="Create">Create new</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ten</th>
+            <th>Mo ta</th>
+            <th>Trang thai</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenPTTT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThai)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_PTTT }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_PTTT }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_PTTT}, new { @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.GioHangCT>
+
+@{
+    ViewData["Title"] = "Index";
+    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
+}
+
+<h1>Giỏ hàng</h1>
+
+<table class="table">
+    <thead>
+        <tr class="">
+            <th class="w-25">
+                Sản phẩm
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="w-25">
+                @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+            </td>
+            <td>
+                <div class="bg-light d-flex justify-content-center">
+                    @{
+                        var extension = System.IO.Path.GetExtension(item.SanPham.Img);
+                    }
+                    @if (@extensions.Contains(extension))
+                    {
+                        <div class="img-container d-flex justify-content-center" style="width: 100px; height: 100px;">
+                            <img class="responsive-img" src="~/imgs/@item.SanPham.Img" alt="@item.SanPham.TenSanPham" style="object-fit:cover">
+                        </div>
+                    }
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

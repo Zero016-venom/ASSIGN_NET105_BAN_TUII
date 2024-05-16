@@ -1,0 +1,35 @@
+﻿@model ASM_NET105_BanTui.Core.Domain.Models.Hang
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Chi tiết hãng</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Tên Hãng")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenHang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Mô tả")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Trạng thái")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID_Hang" class="btn btn-warning">Chỉnh sửa</a>
+    <a asp-action="Index">Quay lại danh sách hãng</a>
+</div>

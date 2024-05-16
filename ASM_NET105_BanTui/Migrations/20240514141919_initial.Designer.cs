@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM_NET105_BanTui.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240512154846_initial")]
+    [Migration("20240514141919_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace ASM_NET105_BanTui.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationRole", b =>
+            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.ApplicationRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace ASM_NET105_BanTui.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationUser", b =>
+            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,6 +100,9 @@ namespace ASM_NET105_BanTui.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -411,25 +414,6 @@ namespace ASM_NET105_BanTui.Migrations
                     b.ToTable("SanPham");
                 });
 
-            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.User", b =>
-                {
-                    b.Property<Guid>("ID_User")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("MatKhau")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("TenNguoiDung")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("ID_User");
-
-                    b.ToTable("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
@@ -544,9 +528,9 @@ namespace ASM_NET105_BanTui.Migrations
 
             modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.GioHang", b =>
                 {
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("ID_User")
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", "User")
+                        .WithOne("GioHang")
+                        .HasForeignKey("ASM_NET105_BanTui.Core.Domain.Models.GioHang", "ID_User")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -576,7 +560,7 @@ namespace ASM_NET105_BanTui.Migrations
                         .WithMany("HoaDons")
                         .HasForeignKey("ID_PTTT");
 
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.User", "User")
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", "User")
                         .WithMany("Hoadons")
                         .HasForeignKey("ID_User");
 
@@ -629,7 +613,7 @@ namespace ASM_NET105_BanTui.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationRole", null)
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -638,7 +622,7 @@ namespace ASM_NET105_BanTui.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationUser", null)
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -647,7 +631,7 @@ namespace ASM_NET105_BanTui.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationUser", null)
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -656,13 +640,13 @@ namespace ASM_NET105_BanTui.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationRole", null)
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationUser", null)
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -671,11 +655,18 @@ namespace ASM_NET105_BanTui.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("ASM_NET105_BanTui.Core.Domain.IdentityEntities.ApplicationUser", null)
+                    b.HasOne("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("GioHang");
+
+                    b.Navigation("Hoadons");
                 });
 
             modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.ChatLieu", b =>
@@ -720,11 +711,6 @@ namespace ASM_NET105_BanTui.Migrations
                     b.Navigation("GioHangCT");
 
                     b.Navigation("HoaDonCT");
-                });
-
-            modelBuilder.Entity("ASM_NET105_BanTui.Core.Domain.Models.User", b =>
-                {
-                    b.Navigation("Hoadons");
                 });
 #pragma warning restore 612, 618
         }

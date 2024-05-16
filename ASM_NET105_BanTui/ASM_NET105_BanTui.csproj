@@ -17,6 +17,7 @@
     <None Remove="iRepository\" />
     <None Remove="Views\LoaiSP\" />
     <None Remove="Views\SanPham\" />
+    <None Remove="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
