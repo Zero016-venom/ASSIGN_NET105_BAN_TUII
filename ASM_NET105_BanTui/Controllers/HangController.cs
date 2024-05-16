@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASM_NET105_BanTui.Controllers
 {
-    public class brandsController : Controller
+    public class HangController : Controller
     {
         AppDbContext db;
         AllRepository<Hang> repos;
-        public brandsController()
+        public HangController()
         {
             db = new AppDbContext();
             repos = new AllRepository<Hang>(db,db.Hang);
