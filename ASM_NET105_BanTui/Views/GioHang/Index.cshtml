@@ -2,24 +2,22 @@
 
 @{
     ViewData["Title"] = "Index";
+    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
 }
 
-<h1>Index</h1>
+<h1>Giỏ hàng</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SoLuong)
+        <tr class="">
+            <th class="w-25">
+                Sản phẩm
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SanPham)
+                Hình ảnh
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GioHang)
+                Số lượng
             </th>
             <th></th>
         </tr>
@@ -27,19 +25,24 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td class="w-25">
+                @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+            </td>
+            <td>
+                <div class="bg-light d-flex justify-content-center">
+                    @{
+                        var extension = System.IO.Path.GetExtension(item.SanPham.Img);
+                    }
+                    @if (@extensions.Contains(extension))
+                    {
+                        <div class="img-container d-flex justify-content-center" style="width: 100px; height: 100px;">
+                            <img class="responsive-img" src="~/imgs/@item.SanPham.Img" alt="@item.SanPham.TenSanPham" style="object-fit:cover">
+                        </div>
+                    }
+                </div>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SoLuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanPham.ID_SanPham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GioHang.ID_User)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID_GioHangCT">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID_GioHangCT">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID_GioHangCT">Delete</a>
             </td>
         </tr>
 }

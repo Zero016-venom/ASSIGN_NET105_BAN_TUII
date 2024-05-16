@@ -6,43 +6,42 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASM_NET105_BanTui.Controllers
 {
-    public class ColorController : Controller
+    public class HangController : Controller
     {
         AppDbContext db;
-        AllRepository<MauSac> repos;
-        public ColorController()
+        AllRepository<Hang> repos;
+        public HangController()
         {
             db = new AppDbContext();
-            repos= new AllRepository<MauSac>(db,db.MauSac);
+            repos = new AllRepository<Hang>(db,db.Hang);
         }
-        // GET: ColorController
+        // GET: brandsController
         public ActionResult Index()
         {
-            var data= db.MauSac.ToList();
+            var data= repos.GetAll();
             return View(data);
         }
 
-        // GET: ColorController/Details/5
+        // GET: brandsController/Details/5
         public ActionResult Details(Guid id)
         {
-            var details= db.MauSac.Find(id);
+            var details= repos.GetById(id);
             return View(details);
         }
 
-        // GET: ColorController/Create
+        // GET: brandsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ColorController/Create
+        // POST: brandsController/Create
         [HttpPost]
-  
-        public ActionResult Create(MauSac mauSac)
+        public ActionResult Create(Hang brands)
         {
             try
             {
-                db.MauSac.Add(mauSac);
+               repos.CreateObj(brands);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -52,20 +51,20 @@ namespace ASM_NET105_BanTui.Controllers
             }
         }
 
-        // GET: ColorController/Edit/5
+        // GET: brandsController/Edit/5
         public ActionResult Edit(Guid id)
         {
-            var edit = db.MauSac.Find(id);
+            var edit= repos.GetById(id);
             return View(edit);
         }
 
-        // POST: ColorController/Edit/5
+        // POST: brandsController/Edit/5
         [HttpPost]
-        public ActionResult Edit(MauSac mauSac)
+        public ActionResult Edit(Hang brands)
         {
             try
             {
-               repos.UpdateObj(mauSac);
+               repos.UpdateObj(brands);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -75,18 +74,14 @@ namespace ASM_NET105_BanTui.Controllers
             }
         }
 
-        // GET: ColorController/Delete/5
-       
+        // GET: brandsController/Delete/5
 
-        // POST: ColorController/Delete/
         public ActionResult Delete(Guid id)
         {
-            
-                var delete = repos.GetById(id);
-                repos.DeleteObj(delete);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-          
+            var delete= repos.GetById(id);
+            repos.DeleteObj(delete);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

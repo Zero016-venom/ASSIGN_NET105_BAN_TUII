@@ -4,35 +4,31 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index ChatLieu</h1>
+<h1>Danh sách chất liệu</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Tạo mới</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID_ChatLieu)
+                @Html.DisplayName("Tên chất liệu")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TenChatLieu)
+                @Html.DisplayName("Mô tả")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MoTa)
+                @Html.DisplayName("Trạng thái")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrangThai)
+                Chức năng
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_ChatLieu)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TenChatLieu)
             </td>
@@ -43,9 +39,9 @@
                 @Html.DisplayFor(modelItem => item.TrangThai)
             </td>
             <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_ChatLieu }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_ChatLieu }, new { @class = "btn btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_ChatLieu }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID_ChatLieu }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_ChatLieu }, new { @class = "btn btn-info" })
+                    @* @Html.ActionLink("Delete", "Delete", new { id = item.ID_ChatLieu }, new { @class = "btn btn-danger" }) *@
             </td>
         </tr>
 }
