@@ -2,6 +2,11 @@
 
 <h1>Add to Cart</h1>
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
 <div>
     <h3>@Model.TenSanPham</h3>
     <p>@Model.GiaNiemYet VND</p>
