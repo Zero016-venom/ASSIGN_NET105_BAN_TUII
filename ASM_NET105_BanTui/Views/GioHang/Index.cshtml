@@ -5,8 +5,12 @@
     List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
 }
 
-<h1>Giỏ hàng</h1>
 
+<h3>Giỏ hàng</h3>
+@if (TempData["Message2"] != null)
+{
+    <div class="alert alert-info">@TempData["Message2"]</div>
+}
 <table class="table">
     <thead>
         <tr class="">
@@ -19,7 +23,9 @@
             <th>
                 Số lượng
             </th>
-            <th></th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -46,5 +52,6 @@
             </td>
         </tr>
 }
+        <a class="btn btn-secondary" asp-action="ThanhToan">Thanh toán</a>
     </tbody>
 </table>

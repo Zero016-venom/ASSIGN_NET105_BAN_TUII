@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Danh sách hóa đơn</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("ID Hóa đơn")
+            </th>
+            <th>
+                @Html.DisplayName("Tên khách hàng")
+            </th>
+            <th>
+                @Html.DisplayName("Tổng tiền")
+            </th>
+            <th>
+                @Html.DisplayName("Trạng thái")
+            </th>
+            <th>
+                @Html.DisplayName("Phương thức thanh toán")
+            </th>
+            <th>
+                @Html.DisplayName("Ngày thanh toán")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_HoaDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_PTTT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayThanhToan)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_HoaDon }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_HoaDon }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HoaDon })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

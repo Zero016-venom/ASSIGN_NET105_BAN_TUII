@@ -121,7 +121,7 @@ namespace ASM_NET105_BanTui.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDTO loginDTO, string? ReturnUrl)
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
             if (ModelState.IsValid == false)
             {

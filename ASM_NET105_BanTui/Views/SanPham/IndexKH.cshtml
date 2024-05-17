@@ -9,7 +9,10 @@
 {
     <div class="alert alert-info">@TempData["Message"]</div>
 }
-
+@if (TempData["Message2"] != null)
+{
+    <div class="alert alert-info">@TempData["Message2"]</div>
+}
 <div class="my-5 text-center">
     <h1 class="w-100 text-center" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif">HAND-PICKED PRODUCTS</h1>
     <div class="w-100 text-center">
@@ -56,7 +59,7 @@
                         </div>
                     </a>
                     <div class="d-flex justify-content-center">
-                        <p class="card-text">@item.GiaNiemYet<p class="ps-1">vnđ</p>
+                        <p class="card-text"> <b>@string.Format("{0:0,0}", @item.GiaNiemYet)<p class="ps-1"> VNĐ</p></b>
                     </div>
 
                 </div>
