@@ -4,28 +4,28 @@
     ViewData["Title"] = "Index";
 }
 
-<h3>Danh sách hóa đơn đã mua của</h3>
+<h3>Danh sách hóa đơn</h3>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID_HoaDon)
+                @Html.DisplayName("ID Hóa đơn")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ID_User)
+                @Html.DisplayName("Tên khách hàng")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TongTien)
+                @Html.DisplayName("Tổng tiền")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrangThai)
+                @Html.DisplayName("Trạng thái")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ID_PTTT)
+                @Html.DisplayName("Phương thức thanh toán")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayThanhToan)
+                @Html.DisplayName("Ngày thanh toán")
             </th>
             <th></th>
         </tr>
@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.ID_HoaDon)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ID_User)
+                @Html.DisplayFor(modelItem => item.User.Email)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TongTien)
@@ -53,8 +53,8 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID_HoaDon }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_HoaDon }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_HoaDon })
+                @Html.ActionLink("Details", "Details", new { id = item.ID_HoaDon }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HoaDon })
             </td>
         </tr>
 }

@@ -148,14 +148,23 @@
                     var cartItem = repoGHCT.GetAll().FirstOrDefault(x => x.ID_User == UserId && x.ID_SanPham == id);
                     if (cartItem == null)
                     {
-                        GioHangCT gioHangCT = new GioHangCT()
+                        var matchingSanPham = repo.GetById(id);
+                        if (matchingSanPham.SoLuongTon == 0)
                         {
-                            ID_GioHangCT = Guid.NewGuid(),
-                            ID_SanPham = id,
-                            SoLuong = SL,
-                            ID_User = UserId,
-                        };
-                        repoGHCT.CreateObj(gioHangCT);
+                            TempData["Message2"] = "Sản phẩm hết mất rồi !";
+
+                        }
+                        else
+                        {
+                            GioHangCT gioHangCT = new GioHangCT()
+                            {
+                                ID_GioHangCT = Guid.NewGuid(),
+                                ID_SanPham = id,
+                                SoLuong = SL,
+                                ID_User = UserId,
+                            };
+                            repoGHCT.CreateObj(gioHangCT);
+                        }
                     }
                     else
                     {
@@ -190,14 +199,22 @@
                     var cartItem = repoGHCT.GetAll().FirstOrDefault(x => x.ID_User == UserId && x.ID_SanPham == id);
                     if (cartItem == null)
                     {
-                        GioHangCT gioHangCT = new GioHangCT()
+                        var matchingSanPham = repo.GetById(id);
+                        if (matchingSanPham.SoLuongTon == 0)
                         {
-                            ID_GioHangCT = Guid.NewGuid(),
-                            ID_SanPham = id,
-                            SoLuong = quantity,
-                            ID_User = UserId,
-                        };
-                        repoGHCT.CreateObj(gioHangCT);
+                            TempData["Message2"] = "Sản phẩm hết mất rồi !";
+                        }
+                        else
+                        {
+                            GioHangCT gioHangCT = new GioHangCT()
+                            {
+                                ID_GioHangCT = Guid.NewGuid(),
+                                ID_SanPham = id,
+                                SoLuong = quantity,
+                                ID_User = UserId,
+                            };
+                            repoGHCT.CreateObj(gioHangCT);
+                        }
                     }
                     else
                     {
