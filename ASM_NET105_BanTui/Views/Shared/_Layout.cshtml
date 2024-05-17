@@ -20,61 +20,64 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang Chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="IndexKH">Sản phẩm</a>
                         </li>
+                        
                     </ul>
 
-                    <ul>
-                        <li>
-                            <a asp-action="Index" asp-controller="GioHang">Giỏ hàng</a>
-                        </li>
-                    </ul>
-                    <ul>
+                    <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li>
-                                @User.Identity?.Name
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">@User.Identity?.Name</a>
                             </li>
 
                             @if (User.IsInRole("Admin"))
                             {
-                                <li>
-                                    <a asp-controller="Home" asp-action="Index">Trang Admin</a>
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link text-dark">Trang Admin</a>
                                 </li>
                             }
 
-                            <li>
-                                <a asp-controller="TaiKhoan" asp-action="Logout">Đăng xuất</a>
+                            @if (User.IsInRole("User"))
+                            {
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="GioHang" class="nav-link text-dark">Giỏ hàng</a>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <a asp-controller="TaiKhoan" asp-action="Logout" class="nav-link text-dark">Đăng xuất</a>
                             </li>
                         }
                         else
                         {
                             @if(ViewBag.CurrentUrl == "~/TaiKhoan/Register")
                             {
-                                <li>
-                                    <a asp-action="Register" asp-controller="TaiKhoan" class="nav active">Đăng ký</a>
+                                <li class="nav-item">
+                                    <a asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
                                 </li>
                             }
                             else
                             {
-                                <li>
-                                    <a asp-action="Register" asp-controller="TaiKhoan">Đăng ký</a>
+                                <li class="nav-item">
+                                    <a asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
                                 </li>
                             }
 
                             @if (ViewBag.CurrentUrl == "~/TaiKhoan/Login")
                             {
-                                <li>
-                                    <a asp-action="Login" asp-controller="TaiKhoan" class="nav active">Đăng nhập</a>
+                                <li class="nav-item">
+                                    <a asp-action="Login" asp-controller="TaiKhoan" class="nav active nav-link text-dark">Đăng nhập</a>
                                 </li>
                             }
                             else
                             {
-                                <li>
-                                    <a asp-action="Login" asp-controller="TaiKhoan">Đăng nhập</a>
+                                <li class="nav-item">
+                                    <a asp-action="Login" asp-controller="TaiKhoan" class="nav active nav-link text-dark">Đăng nhập</a>
                                 </li>
                             }
                         }
