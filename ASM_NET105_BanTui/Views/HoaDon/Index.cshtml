@@ -21,9 +21,9 @@
             <th>
                 @Html.DisplayName("Trạng thái")
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayName("Phương thức thanh toán")
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayName("Ngày thanh toán")
             </th>
@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.ID_HoaDon)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
+                @Html.DisplayFor(modelItem => item.User.PersonName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TongTien)
@@ -45,9 +45,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TrangThai)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.ID_PTTT)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.NgayThanhToan)
             </td>

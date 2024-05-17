@@ -149,9 +149,10 @@
                     if (cartItem == null)
                     {
                         var matchingSanPham = repo.GetById(id);
-                        if (matchingSanPham.SoLuongTon == 0)
+                        if (matchingSanPham.SoLuongTon <= 0)
                         {
                             TempData["Message2"] = "Sản phẩm hết mất rồi !";
+                            matchingSanPham.SoLuongTon = 0;
 
                         }
                         else
@@ -200,9 +201,10 @@
                     if (cartItem == null)
                     {
                         var matchingSanPham = repo.GetById(id);
-                        if (matchingSanPham.SoLuongTon == 0)
+                        if (matchingSanPham.SoLuongTon <= 0)
                         {
                             TempData["Message2"] = "Sản phẩm hết mất rồi !";
+                            matchingSanPham.SoLuongTon = 0;
                         }
                         else
                         {
