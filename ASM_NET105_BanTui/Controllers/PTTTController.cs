@@ -7,7 +7,6 @@ using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
 using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ASM_NET105_BanTui.Controllers
 {
