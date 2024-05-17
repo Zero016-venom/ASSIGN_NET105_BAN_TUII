@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Danh sách sản phẩm";
-    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jepg", ".webp" };
+    List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
 }
 <p>
     <a asp-action="Create" class="btn btn-primary">Thêm sản phẩm mới</a>
@@ -69,9 +69,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.TrangThai)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Img)
-                </td>
+                </td>*@
                 <td>
                     <div class="bg-light d-flex justify-content-center">
                         @{
