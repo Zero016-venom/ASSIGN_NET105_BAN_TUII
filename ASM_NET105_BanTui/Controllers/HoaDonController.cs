@@ -2,6 +2,7 @@
 using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
 using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASM_NET105_BanTui.Controllers
 {
@@ -19,11 +20,14 @@ namespace ASM_NET105_BanTui.Controllers
         public IActionResult Index()
         {
             var check = HttpContext.Session.GetString("UserId");
-            var data = _db.HoaDon.Where(temp => temp.ID_User.ToString() == check).ToList();
+            var data = _db.HoaDon.Where(temp => temp.ID_User.ToString() == check)
+                .Include(x => x.User).Where(p => p.ID_User.ToString() == check).ToList();
             return View(data);
+
+            //.Include(x=>x.User).Where(p=>p.ID_User.ToString() == check)
         }
 
-        public ActionResult Details()
+        public ActionResult Details( Guid id)
         {
             var check = HttpContext.Session.GetString("UserId");
 
@@ -35,8 +39,46 @@ namespace ASM_NET105_BanTui.Controllers
             else
             {
                 var cartItem = _db.HoaDonCT
-                .Where(x => x.ID_HoaDon.ToString() == HoaDonId).ToList();
+                .Where(x => x.ID_HoaDon == id)
+                .Include(x=>x.SanPham)
+                .ToList();
                 return View(cartItem);
+            }
+        }
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Delete(Guid id)
+        {
+            var check = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(check))
+            {
+                return RedirectToAction("Login", "TaiKhoan");
+            }
+            else
+            {
+                var hoaDon = _db.HoaDon.FirstOrDefault(x => x.ID_HoaDon == id);
+
+                if (hoaDon != null &&hoaDon.TrangThai != "cancel")
+                {
+                    hoaDon.TrangThai = "cancel";
+                    var hoaDonCTs = _db.HoaDonCT.Where(x => x.ID_HoaDon == id).ToList();
+                    foreach (var item in hoaDonCTs)
+                    {
+                        var product = _db.SanPham.FirstOrDefault(p => p.ID_SanPham == item.ID_SanPham);
+                        if (product != null)
+                        {
+                            product.SoLuongTon += item.SoLuong;
+                        }
+                    }
+                    _db.SaveChanges();
+                }
+
+                return RedirectToAction("Index", "HoaDon");
             }
         }
     }
