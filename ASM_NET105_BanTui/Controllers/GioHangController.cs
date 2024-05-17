@@ -68,7 +68,8 @@ namespace ASM_NET105_BanTui.Controllers
                     NgayThanhToan = DateTime.Now
                 };
 
-                HttpContext.Session.SetString("hoaDonId", hoaDon.ID_HoaDon.ToString());
+                //HttpContext.Session.SetString("hoaDonId", hoaDon.ID_HoaDon.ToString());
+                Guid id = hoaDon.ID_HoaDon;
 
                 foreach (var item in userCart)
                 {

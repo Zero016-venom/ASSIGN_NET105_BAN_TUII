@@ -28,7 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ID_SanPham)
+                @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ID_HoaDon)
@@ -40,8 +40,7 @@
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
-                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID_HoaDonCT }) |
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_HoaDonCT }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_HoaDon }) |
                     @Html.ActionLink("Hủy hóa đơn", "Delete", new { id = item.ID_HoaDonCT })
             </td>
         </tr>

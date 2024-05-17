@@ -154,6 +154,7 @@ namespace ASM_NET105_BanTui.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+            HttpContext.Session.Clear();
             return RedirectToAction("Index", "SanPham");
         }
 
