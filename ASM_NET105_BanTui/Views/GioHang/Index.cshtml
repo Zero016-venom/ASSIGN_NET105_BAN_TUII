@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index";
     List<string> extensions = new List<string>() { ".jpg", ".png", ".tiff", ".jpeg", ".webp" };
+    decimal totalAmount = 0;
 }
 
 
@@ -24,34 +25,50 @@
                 Số lượng
             </th>
             <th>
-
+                Tiền
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td class="w-25">
-                @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
-            </td>
-            <td>
-                <div class="bg-light d-flex justify-content-center">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="w-25">
+                    @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+                </td>
+                <td>
+                    <div class="bg-light d-flex justify-content-center">
+                        @{
+                            var extension = System.IO.Path.GetExtension(item.SanPham.Img);
+                        }
+                        @if (@extensions.Contains(extension))
+                        {
+                            <div class="img-container d-flex justify-content-center" style="width: 100px; height: 100px;">
+                                <img class="responsive-img" src="~/imgs/@item.SanPham.Img" alt="@item.SanPham.TenSanPham" style="object-fit:cover">
+                            </div>
+                        }
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
                     @{
-                        var extension = System.IO.Path.GetExtension(item.SanPham.Img);
+                        var thanhTien = item.SoLuong * item.SanPham.GiaNiemYet;
+                        totalAmount += thanhTien;
                     }
-                    @if (@extensions.Contains(extension))
-                    {
-                        <div class="img-container d-flex justify-content-center" style="width: 100px; height: 100px;">
-                            <img class="responsive-img" src="~/imgs/@item.SanPham.Img" alt="@item.SanPham.TenSanPham" style="object-fit:cover">
-                        </div>
-                    }
-                </div>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuong)
-            </td>
-        </tr>
-}
+                    <p class="card-text"> <b class="px-1">@string.Format("{0:0,0}", thanhTien)</b>
+                </td>
+            </tr>
+        }
         <a class="btn btn-danger" asp-action="ThanhToan">Thanks toán</a>
     </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right"><strong>Tổng tiền:</strong></td>
+            <td>
+                <p class="card-text"> <b class="px-1">@string.Format("{0:0,0}", totalAmount) VNĐ</b>
+            </td>
+        </tr>
+    </tfoot>
 </table>

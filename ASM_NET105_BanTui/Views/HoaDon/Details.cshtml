@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.ID_HoaDon)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GiaBan)
+                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.GiaBan) VNĐ</b>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SoLuong)
