@@ -34,10 +34,22 @@
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="Index">Sản phẩm</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="HoaDon" asp-action="IndexAdmin">Quản lý hóa đơn</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="LoaiSP" asp-action="Index">Loại sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="HoaDon" asp-action="IndexAdmin">Hóa đơn</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ChatLieu" asp-action="Index">Chất liệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Hang" asp-action="Index">Chất liệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="MauSac" asp-action="Index">Chất liệu</a>
                                 </li>
                             }
 
