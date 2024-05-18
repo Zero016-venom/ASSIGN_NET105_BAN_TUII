@@ -22,23 +22,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang Chủ</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="IndexKH">Sản phẩm</a>
-                        </li>
                         
+                 
                     </ul>
 
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark">@User.Identity?.Name</a>
-                            </li>
+
 
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a asp-controller="Home" asp-action="Index" class="nav-link text-dark">Trang Admin</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a>
                                 </li>
                             }
 
@@ -50,7 +46,14 @@
                                 <li class="nav-item">
                                     <a asp-action="Index" asp-controller="HoaDon" class="nav-link text-dark">Hóa đơn đã thanh toán</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="IndexKH">Sản phẩm</a>
+                                </li>
                             }
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">@User.Identity?.Name</a>
+                            </li>
 
                             <li class="nav-item">
                                 <a asp-controller="TaiKhoan" asp-action="Logout" class="nav-link text-dark">Đăng xuất</a>
@@ -58,7 +61,7 @@
                         }
                         else
                         {
-                            @if(ViewBag.CurrentUrl == "~/TaiKhoan/Register")
+                            @if (ViewBag.CurrentUrl == "~/TaiKhoan/Register")
                             {
                                 <li class="nav-item">
                                     <a asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
