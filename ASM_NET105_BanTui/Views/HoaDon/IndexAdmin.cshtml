@@ -24,19 +24,19 @@
             <tr>
                 <td>@item.ID_HoaDon</td>
                 <td>@item.ID_User</td>
-                <td>@item.TongTien</td>
+                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b>
                 <td>@item.TrangThai</td>
                 @*<td>@item.ID_PTTT</td>*@
                 <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
                 @*<td>
-                    <ul>
-                        @foreach (var detail in item.HoaDonCT)
-                        {
-                            <li>@detail.ID_SanPham</li>
-                            <li>@detail.SoLuong</li>
-                        }
-                    </ul>
-                </td>*@
+            <ul>
+                @foreach (var detail in item.HoaDonCT)
+                {
+                    <li>@detail.ID_SanPham</li>
+                    <li>@detail.SoLuong</li>
+                }
+            </ul>
+        </td>*@
             </tr>
         }
     </tbody>

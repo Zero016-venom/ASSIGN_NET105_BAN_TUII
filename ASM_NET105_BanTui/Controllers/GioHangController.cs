@@ -51,9 +51,13 @@ namespace ASM_NET105_BanTui.Controllers
             {
                 var product = context.SanPham.FirstOrDefault(temp => temp.ID_SanPham == item.ID_SanPham);
 
-                if (product != null)
+                if (product != null && item.SoLuong <= product.SoLuongTon)
                 {
                     product.SoLuongTon -= item.SoLuong;
+                }
+                else
+                {
+                    TempData["Message2"] = "Đã có thay đổi về số lượng sản phẩm, vui lòng check lại !!!";
                 }
             }
 
