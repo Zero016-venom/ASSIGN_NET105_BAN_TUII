@@ -17,14 +17,18 @@ namespace ASM_NET105_BanTui.Controllers
             repoHoaDon = new AllRepository<HoaDon>(_db, _db.HoaDon);
         }
 
+        public IActionResult IndexAdmin()
+        {
+            var data = _db.HoaDon.ToList();
+            return View(data);
+        }
+
         public IActionResult Index()
         {
             var check = HttpContext.Session.GetString("UserId");
             var data = _db.HoaDon.Where(temp => temp.ID_User.ToString() == check)
                 .Include(x => x.User).Where(p => p.ID_User.ToString() == check).ToList();
             return View(data);
-
-            //.Include(x=>x.User).Where(p=>p.ID_User.ToString() == check)
         }
 
         public ActionResult Details( Guid id)
@@ -63,9 +67,9 @@ namespace ASM_NET105_BanTui.Controllers
             {
                 var hoaDon = _db.HoaDon.FirstOrDefault(x => x.ID_HoaDon == id);
 
-                if (hoaDon != null &&hoaDon.TrangThai != "cancel")
+                if (hoaDon != null &&hoaDon.TrangThai != "Canceled")
                 {
-                    hoaDon.TrangThai = "cancel";
+                    hoaDon.TrangThai = "Canceled";
                     var hoaDonCTs = _db.HoaDonCT.Where(x => x.ID_HoaDon == id).ToList();
                     foreach (var item in hoaDonCTs)
                     {

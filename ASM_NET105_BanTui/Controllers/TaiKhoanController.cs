@@ -155,7 +155,7 @@ namespace ASM_NET105_BanTui.Controllers
         {
             await _signInManager.SignOutAsync();
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "SanPham");
+            return RedirectToAction("Login", "TaiKhoan");
         }
 
         public async Task<IActionResult> IsEmailAlreadyRegistered(string email)
