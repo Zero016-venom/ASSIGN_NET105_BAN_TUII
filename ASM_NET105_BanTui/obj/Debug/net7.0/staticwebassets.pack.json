@@ -65,6 +65,14 @@
       "PackagePath": "staticwebassets/imgs/tui1.jpeg"
     },
     {
+      "Id": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/tui3.png",
+      "PackagePath": "staticwebassets/imgs/tui3.png"
+    },
+    {
+      "Id": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/tui4.png",
+      "PackagePath": "staticwebassets/imgs/tui4.png"
+    },
+    {
       "Id": "/Users/tuananhvu/FPT/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/zzz.jpg",
       "PackagePath": "staticwebassets/imgs/zzz.jpg"
     },

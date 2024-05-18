@@ -12,10 +12,10 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @* <div class="form-group">
-                <label asp-for="ID_ChatLieu" class="control-label"></label>
-                <input asp-for="ID_ChatLieu" class="form-control" readonly />
-                <span asp-validation-for="ID_ChatLieu" class="text-danger"></span>
-            </div> *@
+            <label asp-for="ID_ChatLieu" class="control-label"></label>
+            <input asp-for="ID_ChatLieu" class="form-control" readonly />
+            <span asp-validation-for="ID_ChatLieu" class="text-danger"></span>
+        </div> *@
             <div class="form-group">
                 <label asp-for="TenChatLieu" class="control-label">Tên chất liệu</label>
                 <input asp-for="TenChatLieu" class="form-control" />
@@ -41,6 +41,8 @@
             <div class="form-group mt-3">
                 <input type="submit" value="Cập nhật" class="btn btn-warning" />
             </div>
+
+            <input type="hidden" asp-for="ID_ChatLieu" />
         </form>
     </div>
 </div>
