@@ -27,6 +27,9 @@
             <th>
                 Tiền
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -58,6 +61,9 @@
                         totalAmount += thanhTien;
                     }
                     <p class="card-text"> <b class="px-1">@string.Format("{0:0,0}", thanhTien)</b>
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_GioHangCT })
                 </td>
             </tr>
         }
