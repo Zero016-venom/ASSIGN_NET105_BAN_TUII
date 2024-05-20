@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ASM_NET105_BanTui.Core.Domain.Enums;
 using ASM_NET105_BanTui.Core.Domain.Models;
+using ASM_NET105_BanTui.DTO;
 using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
 using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -51,9 +52,13 @@ namespace ASM_NET105_BanTui.Controllers
             {
                 var product = context.SanPham.FirstOrDefault(temp => temp.ID_SanPham == item.ID_SanPham);
 
-                if (product != null)
+                if (product != null && item.SoLuong <= product.SoLuongTon)
                 {
                     product.SoLuongTon -= item.SoLuong;
+                }
+                else
+                {
+                    TempData["Message2"] = "Đã có thay đổi về số lượng sản phẩm, vui lòng check lại !!!";
                 }
             }
 
@@ -96,6 +101,27 @@ namespace ASM_NET105_BanTui.Controllers
             }
             return RedirectToAction("Index", "GioHang");
         }
+
+        public IActionResult Delete(Guid id)
+        {
+            var loginData = HttpContext.Session.GetString("UserId");
+            if (loginData == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var userId = Guid.Parse(loginData);
+            var cartItem = context.GioHangCT.FirstOrDefault(item => item.ID_GioHangCT == id && item.ID_User == userId);
+
+            if (cartItem != null)
+            {
+                context.GioHangCT.Remove(cartItem);
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "GioHang");
+        }
+
     }
 }
 

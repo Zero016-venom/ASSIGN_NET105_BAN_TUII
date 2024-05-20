@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ASM_NET105_BanTui.Core.Domain.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "IndexAdmin";
+}
+
+<h1>Danh sách hóa đơn</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID User</th>
+            <th>Tổng Tiền</th>
+            <th>Trạng Thái</th>
+            @*<th>ID PTTT</th>*@
+            <th>Ngày Thanh Toán</th>
+            @*<th>Chi Tiết</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID_HoaDon</td>
+                <td>@item.ID_User</td>
+                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b>
+                <td>@item.TrangThai</td>
+                @*<td>@item.ID_PTTT</td>*@
+                <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
+                @*<td>
+            <ul>
+                @foreach (var detail in item.HoaDonCT)
+                {
+                    <li>@detail.ID_SanPham</li>
+                    <li>@detail.SoLuong</li>
+                }
+            </ul>
+        </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

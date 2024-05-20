@@ -34,14 +34,14 @@
                 @Html.DisplayFor(modelItem => item.ID_HoaDon)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GiaBan)
+                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.GiaBan) VNĐ</b>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
                     @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_HoaDon }) |
-                    @Html.ActionLink("Hủy hóa đơn", "Delete", new { id = item.ID_HoaDonCT })
+                    @Html.ActionLink("Hủy hóa đơn", "Delete", new { id = item.ID_HoaDon })
             </td>
         </tr>
 }

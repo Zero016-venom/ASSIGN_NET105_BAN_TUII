@@ -40,7 +40,8 @@
                 @Html.DisplayFor(modelItem => item.User.PersonName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TongTien)
+                @*@Html.DisplayFor(modelItem => item.TongTien)*@
+                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TrangThai)
