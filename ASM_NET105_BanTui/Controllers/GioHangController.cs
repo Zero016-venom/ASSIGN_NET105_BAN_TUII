@@ -10,7 +10,6 @@ using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ASM_NET105_BanTui.Controllers
 {
@@ -58,7 +57,8 @@ namespace ASM_NET105_BanTui.Controllers
                 }
                 else
                 {
-                    TempData["Message2"] = "Đã có thay đổi về số lượng sản phẩm, vui lòng check lại !!!";
+                    TempData["Message2"] = "Sản phẩm không đủ số lượng, vui lòng check lại !!!";
+                    return RedirectToAction("Index");
                 }
             }
 
@@ -120,6 +120,33 @@ namespace ASM_NET105_BanTui.Controllers
             }
 
             return RedirectToAction("Index", "GioHang");
+        }
+
+        [HttpPost]
+        public ActionResult ThayDoiSoLuong(Guid id, int quantity)
+        {
+            if (quantity <= 0)
+            {
+                TempData["Message2"] = "Số lượng phải lớn hơn 0!";
+                return RedirectToAction("Index");
+            }
+            var loginData = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(loginData))
+            {
+                return RedirectToAction("Login", "TaiKhoan");
+            }
+
+            var userId = Guid.Parse(loginData);
+            var cartItem = context.GioHangCT.FirstOrDefault(x => x.ID_GioHangCT == id && x.ID_User == userId);
+
+            if (cartItem != null)
+            {
+                cartItem.SoLuong = quantity;
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
         }
 
     }
