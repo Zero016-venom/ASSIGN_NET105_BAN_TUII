@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+@if (TempData["Message5"] != null)
+{
+    <div class="alert alert-info">@TempData["Message5"]</div>
+}
 <h3>Danh sách hóa đơn</h3>
 
 <table class="table">
@@ -27,7 +30,9 @@
             <th>
                 @Html.DisplayName("Ngày thanh toán")
             </th>
-            <th></th>
+            <th>
+                Tương tác
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -53,9 +58,10 @@
                 @Html.DisplayFor(modelItem => item.NgayThanhToan)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_HoaDon }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_HoaDon }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HoaDon })
+                <a asp-action="Details" asp-route-id="@item.ID_HoaDon" class="btn btn-primary">Chi tiết hóa đơn</a>
+                <a asp-action="Delete" asp-route-id="@item.ID_HoaDon" class="btn btn-danger">Hủy hóa đơn</a>
+                <a asp-action="BuyAgain" asp-route-id="@item.ID_HoaDon" class="btn btn-danger">Mua lại</a>
+
             </td>
         </tr>
 }

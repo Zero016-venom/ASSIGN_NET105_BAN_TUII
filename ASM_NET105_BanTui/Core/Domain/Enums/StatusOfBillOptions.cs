@@ -3,7 +3,7 @@ namespace ASM_NET105_BanTui.Core.Domain.Enums
 {
     public enum StatusOfBillOptions
     {
-        WaitForPay, Paid, Cancel
+        WaitForPay, Paid, Canceled
     }
 }
 

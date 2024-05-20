@@ -198,16 +198,23 @@
                 else
                 {
                     var cartItem = repoGHCT.GetAll().FirstOrDefault(x => x.ID_User == UserId && x.ID_SanPham == id);
+                    var matchingSanPham = repo.GetById(id);
+
                     if (cartItem == null)
                     {
-                        var matchingSanPham = repo.GetById(id);
                         if (matchingSanPham.SoLuongTon <= 0)
                         {
-                            TempData["Message2"] = "Sản phẩm hết mất rồi !";
-                            matchingSanPham.SoLuongTon = 0;
+                            TempData["Message2"] = "Sản phẩm hết mất rồi!";
                         }
                         else
                         {
+                            // Ktra sluong nhapạ vào 1
+                            if (quantity > matchingSanPham.SoLuongTon)
+                            {
+                                quantity = matchingSanPham.SoLuongTon;
+                                TempData["Message2"] = $"Số lượng nhập vào vượt quá số lượng còn lại. Đã điều chỉnh số lượng thành {quantity}.";
+                            }
+
                             GioHangCT gioHangCT = new GioHangCT()
                             {
                                 ID_GioHangCT = Guid.NewGuid(),
@@ -222,20 +229,28 @@
                     {
                         var sanPham = repo.GetById(id);
 
-                        if(cartItem.SoLuong + quantity <= sanPham.SoLuongTon)
+                        // Ktra sluong nhapạ vào 2
+                        if (cartItem.SoLuong + quantity > sanPham.SoLuongTon)
+                        {
+                            quantity = sanPham.SoLuongTon - cartItem.SoLuong;
+                            TempData["Message2"] = $"Số lượng nhập vào vượt quá số lượng còn lại. Đã điều chỉnh số lượng thành {quantity}.";
+                        }
+
+                        if (quantity > 0)
                         {
                             cartItem.SoLuong = cartItem.SoLuong + quantity;
                             repoGHCT.UpdateObj(cartItem);
                         }
                         else
                         {
-                            TempData["Message"] = "Đã đạt số lượng tối đa !";
+                            TempData["Message2"] = "Không thể thêm số lượng bằng 0 hoặc âm!";
                         }
                     }
                 }
             }
             return RedirectToAction("IndexKH", "SanPham");
         }
+
 
         public IActionResult AddToCartView(Guid id)
         {
