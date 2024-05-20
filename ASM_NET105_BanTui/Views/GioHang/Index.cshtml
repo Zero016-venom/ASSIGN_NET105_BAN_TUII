@@ -6,7 +6,6 @@
     decimal totalAmount = 0;
 }
 
-
 <h3>Giỏ hàng</h3>
 @if (TempData["Message2"] != null)
 {
@@ -14,22 +13,12 @@
 }
 <table class="table">
     <thead>
-        <tr class="">
-            <th class="w-25">
-                Sản phẩm
-            </th>
-            <th>
-                Hình ảnh
-            </th>
-            <th>
-                Số lượng
-            </th>
-            <th>
-                Tiền
-            </th>
-            <th>
-
-            </th>
+        <tr>
+            <th class="w-25">Sản phẩm</th>
+            <th>Hình ảnh</th>
+            <th>Số lượng</th>
+            <th>Tiền</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -44,7 +33,7 @@
                         @{
                             var extension = System.IO.Path.GetExtension(item.SanPham.Img);
                         }
-                        @if (@extensions.Contains(extension))
+                        @if (extensions.Contains(extension))
                         {
                             <div class="img-container d-flex justify-content-center" style="width: 100px; height: 100px;">
                                 <img class="responsive-img" src="~/imgs/@item.SanPham.Img" alt="@item.SanPham.TenSanPham" style="object-fit:cover">
@@ -53,28 +42,33 @@
                     </div>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SoLuong)
+                    <form method="post" action="@Url.Action("ThayDoiSoLuong", "GioHang")">
+                        <input type="hidden" name="id" value="@item.ID_GioHangCT" />
+                        <input type="number" name="quantity" class="form-control" value="@item.SoLuong" min="1" onchange="this.form.submit()" />
+                    </form>
                 </td>
                 <td>
                     @{
                         var thanhTien = item.SoLuong * item.SanPham.GiaNiemYet;
                         totalAmount += thanhTien;
                     }
-                    <p class="card-text"> <b class="px-1">@string.Format("{0:0,0}", thanhTien)</b>
+                    <p class="card-text"><b class="px-1">@string.Format("{0:0,0}", thanhTien) VNĐ</b></p>
                 </td>
                 <td>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_GioHangCT })
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID_GioHangCT }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
-        <a class="btn btn-danger" asp-action="ThanhToan">Thanks toán</a>
     </tbody>
     <tfoot>
         <tr>
             <td colspan="3" class="text-right"><strong>Tổng tiền:</strong></td>
             <td>
-                <p class="card-text"> <b class="px-1">@string.Format("{0:0,0}", totalAmount) VNĐ</b>
+                <p class="card-text"><b class="px-1">@string.Format("{0:0,0}", totalAmount) VNĐ</b></p>
             </td>
         </tr>
     </tfoot>
 </table>
+<form method="post" action="@Url.Action("ThanhToan", "GioHang")">
+    <button type="submit" class="btn btn-danger mt-2">Thanh toán</button>
+</form>
