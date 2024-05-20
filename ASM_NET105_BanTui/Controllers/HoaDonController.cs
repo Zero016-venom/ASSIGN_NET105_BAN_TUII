@@ -1,8 +1,10 @@
-﻿using ASM_NET105_BanTui.Core.Domain.Models;
+﻿using ASM_NET105_BanTui.Core.Domain.Enums;
+using ASM_NET105_BanTui.Core.Domain.Models;
 using ASM_NET105_BanTui.Infrastructure.DatabaseContext;
 using ASM_NET105_BanTui.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Logging;
 
 namespace ASM_NET105_BanTui.Controllers
 {
@@ -10,11 +12,14 @@ namespace ASM_NET105_BanTui.Controllers
     {
         AppDbContext _db;
         AllRepository<HoaDon> repoHoaDon;
-
+        AllRepository<GioHangCT> repoGHCT;
+        AllRepository<SanPham> repoSP;
         public HoaDonController(AppDbContext db)
         {
             _db = db;
             repoHoaDon = new AllRepository<HoaDon>(_db, _db.HoaDon);
+            repoGHCT = new AllRepository<GioHangCT>(_db, _db.GioHangCT);
+            repoSP = new AllRepository<SanPham>(_db, _db.SanPham);
         }
 
         public IActionResult IndexAdmin()
@@ -67,9 +72,9 @@ namespace ASM_NET105_BanTui.Controllers
             {
                 var hoaDon = _db.HoaDon.FirstOrDefault(x => x.ID_HoaDon == id);
 
-                if (hoaDon != null &&hoaDon.TrangThai != "Canceled")
+                if (hoaDon != null &&hoaDon.TrangThai != StatusOfBillOptions.Canceled.ToString())
                 {
-                    hoaDon.TrangThai = "Canceled";
+                    hoaDon.TrangThai = StatusOfBillOptions.Canceled.ToString();
                     var hoaDonCTs = _db.HoaDonCT.Where(x => x.ID_HoaDon == id).ToList();
                     foreach (var item in hoaDonCTs)
                     {
@@ -85,5 +90,64 @@ namespace ASM_NET105_BanTui.Controllers
                 return RedirectToAction("Index", "HoaDon");
             }
         }
+        public ActionResult BuyAgain(Guid id)
+        {
+            var check = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(check))
+            {
+                return RedirectToAction("Login", "TaiKhoan");
+            }
+            else
+            {
+                var hoaDon = _db.HoaDon.FirstOrDefault(x => x.ID_HoaDon == id);
+
+                if (hoaDon != null)
+                {
+                    var hoaDonCTs = _db.HoaDonCT.Where(x => x.ID_HoaDon == id).ToList();
+                    foreach (var item in hoaDonCTs)
+                    {
+                        var cartItem = repoGHCT.GetAll().FirstOrDefault(x => x.ID_User == Guid.Parse(check) && x.ID_SanPham == item.ID_SanPham);
+                        var matchingSanPham = _db.SanPham.FirstOrDefault(a => a.ID_SanPham == item.ID_SanPham);
+                        if (cartItem == null)
+                        {
+                            if(item.SoLuong < matchingSanPham.SoLuongTon)
+                            {
+                                GioHangCT gioHangCT = new GioHangCT
+                                {
+                                    ID_GioHangCT = Guid.NewGuid(),
+                                    ID_User = Guid.Parse(check),
+                                    ID_SanPham = item.ID_SanPham,
+                                    SoLuong = item.SoLuong
+                                };
+                                repoGHCT.CreateObj(gioHangCT);
+                            }
+                            else
+                            {
+                                TempData["Message5"] = "Sản phẩm không đủ số lượng";
+                                RedirectToAction("Index", "HoaDon");
+                            }
+                        }
+                        else
+                        {
+                            if (matchingSanPham.SoLuongTon >= cartItem.SoLuong + item.SoLuong)
+                            {
+                                cartItem.SoLuong += item.SoLuong;
+                                repoGHCT.UpdateObj(cartItem);
+                            }
+                            else
+                            {
+                                TempData["Message5"] = "Sản phẩm không đủ số lượng";
+                                RedirectToAction("Index", "HoaDon");
+                            }
+                        }
+                    }
+                }
+
+                return RedirectToAction("Index", "HoaDon");
+            }
+        }
+
+        
     }
 }
