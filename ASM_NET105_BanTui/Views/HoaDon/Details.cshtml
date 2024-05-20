@@ -39,10 +39,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
-            <td>
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_HoaDon }) |
-                    @Html.ActionLink("Hủy hóa đơn", "Delete", new { id = item.ID_HoaDon })
-            </td>
         </tr>
 }
     </tbody>
