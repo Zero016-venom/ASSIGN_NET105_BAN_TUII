@@ -37,12 +37,20 @@
       "PackagePath": "staticwebassets/imgs/Screenshot 2024-04-19 002042.png"
     },
     {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/Signout.png",
+      "PackagePath": "staticwebassets/imgs/Signout.png"
+    },
+    {
       "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/Tui from Google (2).jpeg",
       "PackagePath": "staticwebassets/imgs/Tui from Google (2).jpeg"
     },
     {
-      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/atc.png",
-      "PackagePath": "staticwebassets/imgs/atc.png"
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/arrow16.png",
+      "PackagePath": "staticwebassets/imgs/arrow16.png"
+    },
+    {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/bill24.png",
+      "PackagePath": "staticwebassets/imgs/bill24.png"
     },
     {
       "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/btbt3ddb.png",
@@ -51,6 +59,26 @@
     {
       "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/bzj6vm86.png",
       "PackagePath": "staticwebassets/imgs/bzj6vm86.png"
+    },
+    {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/cart24.png",
+      "PackagePath": "staticwebassets/imgs/cart24.png"
+    },
+    {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/homepic.jpeg",
+      "PackagePath": "staticwebassets/imgs/homepic.jpeg"
+    },
+    {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/homesmallpic.png",
+      "PackagePath": "staticwebassets/imgs/homesmallpic.png"
+    },
+    {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/out16.png",
+      "PackagePath": "staticwebassets/imgs/out16.png"
+    },
+    {
+      "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/out24.png",
+      "PackagePath": "staticwebassets/imgs/out24.png"
     },
     {
       "Id": "/Users/tuananhvu/Polytechnic/FPT/NET105/ASM_NET105/ASSIGN_NET105_BAN_TUII/ASM_NET105_BanTui/wwwroot/imgs/totebag1.jpg",

@@ -44,7 +44,10 @@
                 <td>
                     <form method="post" action="@Url.Action("ThayDoiSoLuong", "GioHang")">
                         <input type="hidden" name="id" value="@item.ID_GioHangCT" />
-                        <input type="number" name="quantity" class="form-control" value="@item.SoLuong" min="1" onchange="this.form.submit()" />
+                        <input type="number" name="quantity" class="form-control"
+                               value="@item.SoLuong" min="1" max="@item.SanPham.SoLuongTon"
+                               onchange="this.form.submit()" />
+                                @*để thay đổi giá theo số lượng mỗi khi bấm ra ngoài*@
                     </form>
                 </td>
                 <td>
