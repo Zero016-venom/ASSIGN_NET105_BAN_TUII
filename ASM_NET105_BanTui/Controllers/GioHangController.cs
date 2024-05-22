@@ -140,11 +140,19 @@ namespace ASM_NET105_BanTui.Controllers
             var userId = Guid.Parse(loginData);
             var cartItem = context.GioHangCT.FirstOrDefault(x => x.ID_GioHangCT == id && x.ID_User == userId);
 
+            //var productInCartitem = context.SanPham.FirstOrDefault(x => x.ID_SanPham == cartItem.ID_SanPham);
+
             if (cartItem != null)
             {
                 cartItem.SoLuong = quantity;
                 context.SaveChanges();
             }
+            //else if (quantity > productInCartitem.SoLuongTon)
+            //{
+            //    TempData["Message2"] = $"Số lượng phải nhỏ hơn {productInCartitem.SoLuongTon}! ";
+            //    return RedirectToAction("Index");
+            //}
+            
 
             return RedirectToAction("Index");
         }

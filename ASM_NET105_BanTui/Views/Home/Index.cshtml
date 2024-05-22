@@ -2,8 +2,28 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <div class="row justify-content-between">
+        <div class="col-md-4 d-flex flex-column align-items-start pt-5">
+            <p>EST.2024</p>
+            <p style="font-size: 60px; font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;">ROBERTO <br /> FASHION</p>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center position-relative">
+            <img class="text-center img-fluid w-100" src="~/imgs/homepic.jpeg" alt="Home Picture" />
+            <div class="d-flex align-items-center position-absolute" style="padding-right:10px; top: 50%; left: 0; transform: translate(-50%, -50%);">
+                <a asp-action="IndexKH" asp-controller="SanPham" class="fw-bolder text-black py-1 rounded" style="text-decoration: none; border: none; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif, Times, serif">SHOP <br /> NOW</a>
+                <a asp-action="IndexKH" asp-controller="SanPham" class="text-black btn btn-primary d-flex align-items-center justify-content-center rounded-circle"
+                   style="background-color: white; width: 60px; height: 60px; text-decoration: none; border: 2px solid #FBF6F1; margin-right: 10px; ">
+                    <img src="~/imgs/arrow16.png" />
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex flex-column align-items-end pt-5">
+            <img class="img-fluid pb-5" src="~/imgs/homesmallpic.png" />
+            <p class="fw-lighter" style="font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif">-EUROPEAN THREAD</p>
+            <p class="fw-lighter" style="font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif">-LUXURY OF QUALITY</p>
+            <p class="fw-lighter" style="font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif">-OVERSEAS CUT</p>
+            <p class="fw-lighter" style="font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif">-VERY WARM</p>
+        </div>
+    </div>
 </div>
-

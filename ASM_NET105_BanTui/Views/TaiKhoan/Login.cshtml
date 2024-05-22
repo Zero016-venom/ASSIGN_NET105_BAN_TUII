@@ -3,13 +3,11 @@
     ViewBag.Title = "Đăng nhập";
 }
 
-<div class="">
-    <span>Đăng nhập</span>
-</div>
+
 
 <div class="container">
-    Bạn chưa có tài khoản ? <a asp-action="Register" asp-controller="TaiKhoan" class="btn-link">Đăng ký</a>
     <h2>Đăng nhập</h2>
+    Bạn chưa có tài khoản ? <a asp-action="Register" asp-controller="TaiKhoan" class="btn-link">Đăng ký</a>
 
     <form asp-controller="TaiKhoan" class="container d-flex justify-content-center" asp-action="Login" method="post">
 
