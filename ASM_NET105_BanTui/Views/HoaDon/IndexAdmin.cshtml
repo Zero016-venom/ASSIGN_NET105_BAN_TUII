@@ -4,7 +4,7 @@
     ViewData["Title"] = "IndexAdmin";
 }
 
-<h1>Danh sách hóa đơn</h1>
+<h3>Danh sách hóa đơn</h3>
 
 <table class="table">
     <thead>
@@ -23,20 +23,27 @@
         {
             <tr>
                 <td>@item.ID_HoaDon</td>
-                <td>@item.ID_User</td>
-                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b>
-                <td>@item.TrangThai</td>
+                <td>@item.User.PersonName</td>
+                <td><p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b></td>
+                @if(item.TrangThai == StatusOfBillOptions.Paid.ToString())
+                {
+                    <td class="badge btn-success">@item.TrangThai</td>
+                }
+                else
+                {
+                    <td class="badge btn-danger">@item.TrangThai</td>
+                }
                 @*<td>@item.ID_PTTT</td>*@
                 <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
                 @*<td>
-            <ul>
-                @foreach (var detail in item.HoaDonCT)
-                {
-                    <li>@detail.ID_SanPham</li>
-                    <li>@detail.SoLuong</li>
-                }
-            </ul>
-        </td>*@
+                    <ul>
+                        @foreach (var detail in item.HoaDonCT)
+                        {
+                            <li>@detail.ID_SanPham</li>
+                            <li>@detail.SoLuong</li>
+                        }
+                    </ul>
+                </td>*@
             </tr>
         }
     </tbody>
