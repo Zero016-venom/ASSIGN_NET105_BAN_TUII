@@ -27,11 +27,11 @@
                 <td><p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b></td>
                 @if(item.TrangThai == StatusOfBillOptions.Paid.ToString())
                 {
-                    <td class="badge btn-success">@item.TrangThai</td>
+                    <td class="badge bg-success">@item.TrangThai</td>
                 }
                 else
                 {
-                    <td class="badge btn-danger">@item.TrangThai</td>
+                    <td class="badge bg-danger">@item.TrangThai</td>
                 }
                 @*<td>@item.ID_PTTT</td>*@
                 <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
