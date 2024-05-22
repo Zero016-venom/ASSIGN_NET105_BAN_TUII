@@ -24,7 +24,7 @@ namespace ASM_NET105_BanTui.Controllers
 
         public IActionResult IndexAdmin()
         {
-            var data = _db.HoaDon.ToList();
+            var data = _db.HoaDon.Include(temp => temp.User).ToList();
             return View(data);
         }
 
