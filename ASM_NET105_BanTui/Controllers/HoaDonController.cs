@@ -121,6 +121,7 @@ namespace ASM_NET105_BanTui.Controllers
                                     SoLuong = item.SoLuong
                                 };
                                 repoGHCT.CreateObj(gioHangCT);
+                                TempData["Message5"] = "Thêm vào giỏ hàng thành công";
                             }
                             else
                             {
@@ -134,6 +135,7 @@ namespace ASM_NET105_BanTui.Controllers
                             {
                                 cartItem.SoLuong += item.SoLuong;
                                 repoGHCT.UpdateObj(cartItem);
+                                TempData["Message5"] = "Thêm vào giỏ hàng thành công";
                             }
                             else
                             {

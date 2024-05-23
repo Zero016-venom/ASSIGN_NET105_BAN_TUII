@@ -59,7 +59,15 @@
 
     <div class="form-group">
         <label asp-for="TrangThai" class="control-label">Trạng thái</label>
-        <input asp-for="TrangThai" class="form-control" />
+        <select asp-for="TrangThai" class="form-control">
+            @{
+                string[] status = (string[])Enum.GetNames(typeof(StatusOptions));
+            }
+            @foreach (string item in status)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
         <span asp-validation-for="TrangThai" class="text-danger"></span>
     </div>
 
