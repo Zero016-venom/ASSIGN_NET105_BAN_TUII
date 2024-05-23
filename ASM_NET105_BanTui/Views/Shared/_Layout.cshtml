@@ -10,68 +10,78 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ASM_NET105_BanTui</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand ps-5" style="font-size: 40px; font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif" asp-area="" asp-controller="Home" asp-action="Index">Roberto</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang Chủ</a>
-                        </li>
-                        
-                 
+                          </li>*@
                     </ul>
+                    <div class="d-flex justify-content-center w-100">
+                        <ul class="navbar-nav">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="Index">Sản phẩm</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="LoaiSP" asp-action="Index">Loại sản phẩm</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="HoaDon" asp-action="IndexAdmin">Hóa đơn</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="ChatLieu" asp-action="Index">Chất liệu</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Hang" asp-action="Index">Hãng</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="MauSac" asp-action="Index">Màu sắc</a>
+                                    </li>
+                                }
+
+                                @if (User.IsInRole("User"))
+                                {
+                                    <li class="nav-item">
+                                        <a asp-action="IndexKH" asp-controller="SanPham" class="nav-link text-dark">Sản phẩm</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="Index" asp-controller="GioHang" class="nav-link text-dark">
+                                            @*<img src="~/imgs/cart24.png" />*@
+                                            Giỏ hàng
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="Index" asp-controller="HoaDon" class="nav-link text-dark">
+                                            @*<img src="~/imgs/bill24.png" />*@
+                                            Hóa đơn
+                                        </a>
+                                    </li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
 
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-
-
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="Index">Sản phẩm</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="LoaiSP" asp-action="Index">Loại sản phẩm</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="HoaDon" asp-action="IndexAdmin">Hóa đơn</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="ChatLieu" asp-action="Index">Chất liệu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Hang" asp-action="Index">Chất liệu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="MauSac" asp-action="Index">Chất liệu</a>
-                                </li>
-                            }
-
-                            @if (User.IsInRole("User"))
-                            {
-                                <li class="nav-item">
-                                    <a asp-action="Index" asp-controller="GioHang" class="nav-link text-dark">Giỏ hàng</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-action="Index" asp-controller="HoaDon" class="nav-link text-dark">Hóa đơn đã thanh toán</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SanPham" asp-action="IndexKH">Sản phẩm</a>
-                                </li>
-                            }
-
                             <li class="nav-item">
                                 <a class="nav-link text-dark">@User.Identity?.Name</a>
                             </li>
 
                             <li class="nav-item">
-                                <a asp-controller="TaiKhoan" asp-action="Logout" class="nav-link text-dark">Đăng xuất</a>
+                                <a asp-controller="TaiKhoan" asp-action="Logout" class="nav-link text-dark">
+                                    <img src="~/imgs/out24.png"/>
+                                </a>
                             </li>
                         }
                         else
@@ -79,31 +89,30 @@
                             @if (ViewBag.CurrentUrl == "~/TaiKhoan/Register")
                             {
                                 <li class="nav-item">
-                                    <a asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
+                                    <a style="width: 100px" asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
                                 </li>
                             }
                             else
                             {
                                 <li class="nav-item">
-                                    <a asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
+                                    <a style="width: 100px" asp-action="Register" asp-controller="TaiKhoan" class="nav active ms-2 nav-link text-dark">Đăng ký</a>
                                 </li>
                             }
 
                             @if (ViewBag.CurrentUrl == "~/TaiKhoan/Login")
                             {
                                 <li class="nav-item">
-                                    <a asp-action="Login" asp-controller="TaiKhoan" class="nav active nav-link text-dark">Đăng nhập</a>
+                                    <a style="width: 100px" asp-action="Login" asp-controller="TaiKhoan" class="nav active nav-link text-dark">Đăng nhập</a>
                                 </li>
                             }
                             else
                             {
                                 <li class="nav-item">
-                                    <a asp-action="Login" asp-controller="TaiKhoan" class="nav active nav-link text-dark">Đăng nhập</a>
+                                    <a style="width: 100px" asp-action="Login" asp-controller="TaiKhoan" class="nav active nav-link text-dark">Đăng nhập</a>
                                 </li>
                             }
                         }
                     </ul>
-
                 </div>
             </div>
         </nav>
@@ -125,4 +134,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-

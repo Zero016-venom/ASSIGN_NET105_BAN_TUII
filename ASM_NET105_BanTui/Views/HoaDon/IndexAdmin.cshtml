@@ -4,18 +4,16 @@
     ViewData["Title"] = "IndexAdmin";
 }
 
-<h1>Danh sách hóa đơn</h1>
+<h3>Danh sách hóa đơn</h3>
 
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>ID User</th>
+            <th>Khách hàng</th>
             <th>Tổng Tiền</th>
             <th>Trạng Thái</th>
-            @*<th>ID PTTT</th>*@
             <th>Ngày Thanh Toán</th>
-            @*<th>Chi Tiết</th>*@
         </tr>
     </thead>
     <tbody>
@@ -23,21 +21,18 @@
         {
             <tr>
                 <td>@item.ID_HoaDon</td>
-                <td>@item.ID_User</td>
-                <p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b>
-                <td>@item.TrangThai</td>
-                @*<td>@item.ID_PTTT</td>*@
-                <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
-                @*<td>
-            <ul>
-                @foreach (var detail in item.HoaDonCT)
-                {
-                    <li>@detail.ID_SanPham</li>
-                    <li>@detail.SoLuong</li>
-                }
-            </ul>
-        </td>*@
-            </tr>
+                <td>@item.User.PersonName</td>
+                <td><p class="card-text"> <b>@string.Format("{0:0,0}", @item.TongTien) VNĐ</b></td>
+                 @if (item.TrangThai == StatusOfBillOptions.Paid.ToString())
+                    {
+                        <td class="badge bg-success">@item.TrangThai</td>
+                    }
+                  else
+                    {
+                        <td class="badge bg-danger">@item.TrangThai</td>
+                    }   
+                    <td>@item.NgayThanhToan.ToString("dd/MM/yyyy")</td>
+                </tr>
         }
     </tbody>
 </table>

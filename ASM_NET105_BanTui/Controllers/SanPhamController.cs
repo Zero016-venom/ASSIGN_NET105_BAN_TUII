@@ -28,9 +28,9 @@
             {
                 var data = context.SanPham
                     .Include(p => p.LoaiSP)
-                    .Include(p=>p.MauSac)
-                    .Include(p=>p.Hang)
-                    .Include(p=>p.ChatLieu).ToList();
+                    .Include(p => p.MauSac)
+                    .Include(p => p.Hang)
+                    .Include(p => p.ChatLieu).ToList();
                 return View(data);
             }
 
@@ -44,7 +44,7 @@
                 return View(data);
             }
 
-        public IActionResult Create()
+            public IActionResult Create()
             {
                 ViewBag.LoaiSP = new SelectList(context.LoaiSP.ToList(), "ID_LoaiSP", "TenLoaiSP");
                 ViewBag.MauSac = new SelectList(context.MauSac.ToList(), "ID_MauSac", "TenMauSac");
