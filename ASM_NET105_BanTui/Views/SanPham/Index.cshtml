@@ -58,7 +58,7 @@
                     @Html.DisplayFor(modelItem => item.MauSac.TenMauSac)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.GiaNiemYet)
+                    @string.Format("{0:0,0}", item.GiaNiemYet) VNĐ
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ChatLieu.TenChatLieu)
@@ -69,9 +69,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.TrangThai)
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Img)
-                </td>*@
                 <td>
                     <div class="bg-light d-flex justify-content-center">
                         @{
