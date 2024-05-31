@@ -16,7 +16,7 @@ namespace ASM_NET105_BanTui.Controllers
             repo = new AllRepository<ChatLieu>(context, context.ChatLieu);
         }
         // GET: ChatLieuController
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var data = repo.GetAll();
             return View(data);
